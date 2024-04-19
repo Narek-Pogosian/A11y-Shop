@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@/components/providers";
-import "@/styles/globals.css";
+import "@/globals.css";
 
 import { Inter } from "next/font/google";
 
