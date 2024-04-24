@@ -1,9 +1,9 @@
 import { ThemeProvider } from "@/components/providers";
 import "@/globals.css";
 
-import { Inter } from "next/font/google";
+import { Libre_Franklin } from "next/font/google";
 
-const inter = Inter({
+const inter = Libre_Franklin({
   subsets: ["latin"],
   variable: "--font-sans",
 });

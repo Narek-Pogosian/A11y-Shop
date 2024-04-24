@@ -61,6 +61,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  input {
+    @apply accent-primary;
+  }
 }
 
 html,

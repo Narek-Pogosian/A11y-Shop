@@ -1,9 +1,11 @@
 import { sql } from "drizzle-orm";
 import {
-  index,
+  decimal,
+  pgEnum,
   pgTableCreator,
   serial,
   timestamp,
+  uniqueIndex,
   varchar,
 } from "drizzle-orm/pg-core";
 
@@ -15,18 +17,28 @@ import {
  */
 export const createTable = pgTableCreator((name) => `accessible-shop_${name}`);
 
+export const categoryEnum = pgEnum("category", [
+  "fruit",
+  "vegetable",
+  "dessert",
+]);
+
 export const products = createTable(
   "product",
   {
     id: serial("id").primaryKey(),
     name: varchar("name", { length: 256 }).notNull(),
     slug: varchar("slug", { length: 256 }).unique().notNull(),
+    description: varchar("description", { length: 1024 }).notNull(),
+    price: decimal("price", { precision: 10, scale: 2 }).notNull(),
+    category: categoryEnum("category").notNull(),
+    image: varchar("image", { length: 256 }),
     createdAt: timestamp("created_at")
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
     updatedAt: timestamp("updatedAt"),
   },
-  (example) => ({
-    slugIndex: index("slug_idx").on(example.slug),
+  (product) => ({
+    slugIndex: uniqueIndex("slug_idx").on(product.slug),
   }),
 );
