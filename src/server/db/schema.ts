@@ -33,6 +33,7 @@ export const products = createTable(
     price: decimal("price", { precision: 10, scale: 2 }).notNull(),
     category: categoryEnum("category").notNull(),
     image: varchar("image", { length: 256 }),
+    altText: varchar("altText", { length: 256 }),
     createdAt: timestamp("created_at")
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),

@@ -7,7 +7,6 @@ interface ProductsListProps {
 
 export async function ProductsList({ searchParams }: ProductsListProps) {
   console.log(searchParams);
-  await new Promise((resolve) => setTimeout(resolve, 2000));
   const products = await getProducts();
 
   return (
