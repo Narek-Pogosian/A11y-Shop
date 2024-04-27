@@ -1,4 +1,4 @@
-import { sql } from "drizzle-orm";
+import { type InferSelectModel, sql } from "drizzle-orm";
 import {
   decimal,
   pgEnum,
@@ -42,3 +42,5 @@ export const products = createTable(
     slugIndex: uniqueIndex("slug_idx").on(product.slug),
   }),
 );
+
+export type Product = InferSelectModel<typeof products>;
