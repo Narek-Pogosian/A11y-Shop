@@ -58,8 +58,11 @@
   * {
     @apply border-border;
   }
+  html {
+    @apply scrollbar scrollbar-thumb-scrollbar scrollbar-track-transparent;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply overflow-y-scroll bg-background text-foreground;
   }
   input {
     @apply accent-primary;

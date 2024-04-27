@@ -1,5 +1,9 @@
 function ShopPage() {
-  return <div>ShopPage</div>;
+  return (
+    <div>
+      <h1>ShopPage</h1>
+    </div>
+  );
 }
 
 export default ShopPage;

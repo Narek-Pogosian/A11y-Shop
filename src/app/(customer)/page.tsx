@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-async function HomePage() {
+function HomePage() {
   return (
     <div className="pt-14 text-center">
       <h1 className="mb-2 text-5xl font-bold">Welcome to A11y Shop</h1>
