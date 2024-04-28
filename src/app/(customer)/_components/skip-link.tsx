@@ -15,7 +15,7 @@ function SkipLink() {
     <Button
       onClick={handleClick}
       size="sm"
-      className="fixed left-2 top-2 -z-10 opacity-0 transition-opacity duration-500 focus:z-50 focus:opacity-100"
+      className="fixed -left-60 top-2 focus:left-2"
     >
       Skip to content
     </Button>

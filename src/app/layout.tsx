@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@/components/providers";
+import { Providers } from "@/components/providers";
 import "@/globals.css";
 
 import { Libre_Franklin } from "next/font/google";
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`font-sans ${inter.variable}`}>
-        <ThemeProvider attribute="class">{children}</ThemeProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
