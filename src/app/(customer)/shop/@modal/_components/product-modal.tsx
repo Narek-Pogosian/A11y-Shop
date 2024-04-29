@@ -4,7 +4,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 
-function ProductModal() {
+function ProductModal({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const refElement = useRef(document.activeElement);
 
@@ -23,7 +23,7 @@ function ProductModal() {
 
   return (
     <Dialog open={true} onOpenChange={handleClose}>
-      <DialogContent>Hello</DialogContent>
+      <DialogContent>{children}</DialogContent>
     </Dialog>
   );
 }

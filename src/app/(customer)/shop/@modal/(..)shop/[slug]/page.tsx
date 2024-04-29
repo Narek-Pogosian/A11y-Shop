@@ -1,10 +1,14 @@
-import ProductModal from "../../../_components/product-modal";
+import ProductModal from "../../_components/product-modal";
+import ProductContent from "../../_components/product-content";
+import { Suspense } from "react";
 
-function ProductModalPage({ params }: PageProps<"slug">) {
+async function ProductModalPage({ params }: PageProps<"slug">) {
   return (
-    <>
-      <ProductModal />
-    </>
+    <ProductModal>
+      <Suspense fallback={<div>Loading..</div>}>
+        <ProductContent slug={params.slug} />
+      </Suspense>
+    </ProductModal>
   );
 }
 
