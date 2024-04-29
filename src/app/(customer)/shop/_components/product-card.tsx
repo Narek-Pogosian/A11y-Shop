@@ -1,9 +1,8 @@
 import { type Product } from "@/server/db/schema";
-import { ShoppingBag } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { currency } from "@/lib/utils";
+import AddToCart from "../../_components/add-to-cart";
+import Link from "next/link";
 
 interface ProductCardProps {
   product: Product;
@@ -38,10 +37,7 @@ export function ProductCard({ product }: ProductCardProps) {
             {currency(product.price)}
           </span>
         </div>
-        <Button size="icon" className="relative">
-          <span className="sr-only">Add to Cart</span>
-          <ShoppingBag className="size-6" />
-        </Button>
+        <AddToCart product={product} />
       </div>
     </article>
   );

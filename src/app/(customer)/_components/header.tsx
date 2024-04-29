@@ -1,4 +1,5 @@
 import ThemeToggle from "@/components/theme-toggle";
+import CartDrawer from "./cart-drawer";
 import Link from "next/link";
 
 function Header() {
@@ -10,7 +11,8 @@ function Header() {
             A11y Shop
           </Link>
         </div>
-        <div>
+        <div className="flex items-center gap-1">
+          <CartDrawer />
           <ThemeToggle />
         </div>
       </div>
