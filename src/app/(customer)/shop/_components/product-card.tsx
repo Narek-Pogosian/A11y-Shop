@@ -11,7 +11,7 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   return (
     <article className="product-card relative rounded">
-      <div className="aspect-video overflow-hidden rounded">
+      <div className="aspect-[3/2] overflow-hidden rounded">
         {product.image ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -23,7 +23,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <div className="h-full w-full bg-accent"></div>
         )}
       </div>
-      <div className="flex items-center justify-between px-1 pb-1 pt-2">
+      <div className="flex items-center justify-between pb-1 pt-2">
         <div className="flex flex-col font-semibold">
           <h2>
             <Link
@@ -45,8 +45,15 @@ export function ProductCard({ product }: ProductCardProps) {
 
 export function ProductCardSkeleton() {
   return (
-    <div>
-      <Skeleton className="aspect-video" />
-    </div>
+    <>
+      <Skeleton className="aspect-[3/2]" />
+      <div className="flex items-center justify-between pb-1 pt-2">
+        <div className="flex flex-col pt-1 font-semibold">
+          <Skeleton className="mb-1.5 h-5 w-28" />
+          <Skeleton className="h-4 w-12" />
+        </div>
+        <Skeleton className="h-10 w-10" />
+      </div>
+    </>
   );
 }
