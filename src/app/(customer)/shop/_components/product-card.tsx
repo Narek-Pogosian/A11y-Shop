@@ -27,7 +27,8 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className="flex flex-col font-semibold">
           <h2>
             <Link
-              href="/"
+              href={`/shop/${product.slug}`}
+              scroll={false}
               className="text-lg outline-none after:absolute after:inset-0"
             >
               {product.name}
