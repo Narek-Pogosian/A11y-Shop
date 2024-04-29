@@ -23,7 +23,7 @@ function ProductModal({ children }: { children: React.ReactNode }) {
 
   return (
     <Dialog open={true} onOpenChange={handleClose}>
-      <DialogContent>{children}</DialogContent>
+      <DialogContent className="top-[30%] max-w-2xl">{children}</DialogContent>
     </Dialog>
   );
 }

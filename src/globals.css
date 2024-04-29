@@ -31,10 +31,10 @@
   .dark {
     color-scheme: dark;
 
-    --background: 0 0% 10%;
+    --background: 0 0% 8%;
     --foreground: 0 0% 98%;
 
-    --element: 0 0% 13%;
+    --element: 0 0% 11%;
     --element-foreground: 0 0% 98%;
 
     --primary: 0 0% 98%;
@@ -46,8 +46,8 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 15.9%;
-    --input: 0 0% 17.9%;
+    --border: 0 0% 11.9%;
+    --input: 0 0% 14.9%;
 
     --ring: 0 0% 83.9%;
     --scrollbar: 0 0% 18%;
