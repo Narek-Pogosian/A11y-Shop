@@ -59,17 +59,25 @@
     @apply border-border;
   }
   html {
-    @apply scrollbar scrollbar-thumb-scrollbar scrollbar-track-transparent;
+    @apply h-full scrollbar scrollbar-track-transparent scrollbar-thumb-scrollbar;
   }
   body {
-    @apply overflow-y-scroll bg-background text-foreground;
+    @apply h-full overflow-y-scroll bg-background text-foreground;
   }
   input {
     @apply accent-primary;
   }
 }
 
-html,
-body {
-  height: 100%;
+@layer components {
+  .product-card:focus-within {
+    @apply ring-2 ring-ring;
+  }
+  .product-card:has(a:focus-visible) {
+    @apply ring-2 ring-ring;
+  }
+  .product-card:has(button:focus-visible),
+  .product-card:has(button:focus) {
+    @apply ring-0;
+  }
 }
