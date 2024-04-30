@@ -71,13 +71,13 @@
 
 @layer components {
   .product-card:focus-within {
-    @apply ring-2 ring-ring;
+    @apply ring-2 ring-ring ring-offset-4 ring-offset-background;
   }
   .product-card:has(a:focus-visible) {
-    @apply ring-2 ring-ring;
+    @apply ring-2 ring-ring ring-offset-4 ring-offset-background;
   }
   .product-card:has(button:focus-visible),
   .product-card:has(button:focus) {
-    @apply ring-0;
+    @apply ring-0 ring-offset-0;
   }
 }
