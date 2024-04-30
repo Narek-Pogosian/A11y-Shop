@@ -2,9 +2,9 @@ import { type CartItem } from "./cart.types";
 
 export type CartActionType =
   | { type: "ADD"; item: CartItem }
-  | { type: "DELETE"; productId: string }
-  | { type: "INCREMENT"; productId: string }
-  | { type: "DECREMENT"; productId: string }
+  | { type: "DELETE"; productId: number }
+  | { type: "INCREMENT"; productId: number }
+  | { type: "DECREMENT"; productId: number }
   | { type: "RESET" };
 
 export const cartReducer = (

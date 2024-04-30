@@ -1,6 +1,11 @@
-import { createContext, useCallback, useReducer } from "react";
+"use client";
+
+import { createContext, useCallback, useEffect, useReducer } from "react";
 import { type CartItem, type CartContextType } from "./cart.types";
-import { getCartFromLocalStorage } from "@/lib/local-storage";
+import {
+  getCartFromLocalStorage,
+  saveCartInLocalStorage,
+} from "@/lib/local-storage";
 import { cartReducer } from "./cart-reducer";
 
 export const CartContext = createContext<CartContextType | null>(null);
@@ -11,19 +16,23 @@ const initialCart =
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cartItems, dispatch] = useReducer(cartReducer, initialCart);
 
+  useEffect(() => {
+    saveCartInLocalStorage(cartItems);
+  }, [cartItems]);
+
   const addToCart = useCallback((item: CartItem) => {
     dispatch({ type: "ADD", item });
   }, []);
 
-  const deleteFromCart = useCallback((productId: string) => {
+  const deleteFromCart = useCallback((productId: number) => {
     dispatch({ type: "DELETE", productId });
   }, []);
 
-  const incrementCartItem = useCallback((productId: string) => {
+  const incrementCartItem = useCallback((productId: number) => {
     dispatch({ type: "INCREMENT", productId });
   }, []);
 
-  const decrementCartItem = useCallback((productId: string) => {
+  const decrementCartItem = useCallback((productId: number) => {
     dispatch({ type: "DECREMENT", productId });
   }, []);
 
