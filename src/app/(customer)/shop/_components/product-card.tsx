@@ -35,7 +35,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </Link>
           </h2>
           <span className="text-sm text-muted-foreground">
-            {currency(product.price)}
+            {currency(parseFloat(product.price))}
           </span>
         </div>
         <AddToCart product={product} />

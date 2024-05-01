@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -13,10 +12,18 @@ import { useCart } from "@/hooks/use-cart";
 import { useIsMounted } from "@/hooks/use-is-mounted";
 import { ShoppingBag } from "lucide-react";
 import CartList from "./cart-list";
+import { useRef } from "react";
+import { currency, getTotalCartPrice } from "@/lib/utils";
 
 function CartDrawer() {
   const { cartItems } = useCart();
   const isMounted = useIsMounted();
+  const firstLinkRef = useRef<HTMLAnchorElement>(null);
+
+  function handleOpenFocus(e: Event) {
+    e.preventDefault();
+    firstLinkRef.current?.focus();
+  }
 
   return (
     <Sheet>
@@ -26,7 +33,7 @@ function CartDrawer() {
           <span className="sr-only">View your shopping cart.</span>
           {isMounted && cartItems.length > 0 && (
             <span
-              className="absolute right-0 top-0 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground"
+              className="absolute right-0 top-0 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground"
               aria-hidden
             >
               {cartItems.length}
@@ -34,14 +41,25 @@ function CartDrawer() {
           )}
         </Button>
       </SheetTrigger>
-      <SheetContent className="flex flex-col">
+      <SheetContent className="flex flex-col" onOpenAutoFocus={handleOpenFocus}>
         <SheetHeader>
           <SheetTitle>Your Cart</SheetTitle>
-          <SheetDescription>Manage your cart items.</SheetDescription>
         </SheetHeader>
-        <CartList />
+        <CartList firstLinkRef={firstLinkRef} />
         <div>
-          <Button className="w-full">Procced to checkout</Button>
+          <div className="space-y-2 py-6">
+            <div className="flex items-center justify-between">
+              <p className="text-lg font-medium">Shipment:</p>
+              <p className="text-lg font-medium">{currency(0)}</p>
+            </div>
+            <div className="flex items-center justify-between">
+              <p className="text-lg font-medium">Total:</p>
+              <p className="text-lg font-medium">
+                {getTotalCartPrice(cartItems)}
+              </p>
+            </div>
+          </div>
+          <Button className="w-full">Proceed to checkout</Button>
         </div>
       </SheetContent>
     </Sheet>
