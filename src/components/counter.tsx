@@ -14,15 +14,15 @@ function Counter({ count, decrement, increment }: CounterProps) {
         onClick={decrement}
         variant="outline"
         size="icon"
-        className="h-8 w-8 rounded-full"
+        className="size-7 rounded-full"
       >
-        <Minus className="size-5" />
+        <Minus className="size-4" />
         <span className="sr-only">decrement</span>
       </Button>
 
       <div
         aria-live="assertive"
-        className="flex w-9 items-center justify-center"
+        className="flex w-6 items-center justify-center"
       >
         <span className="sr-only">Current count is</span>
         {count}
@@ -32,9 +32,9 @@ function Counter({ count, decrement, increment }: CounterProps) {
         onClick={increment}
         variant="outline"
         size="icon"
-        className="h-8 w-8 rounded-full"
+        className="size-7 rounded-full"
       >
-        <Plus className="size-5" />
+        <Plus className="size-4" />
         <span className="sr-only">increment</span>
       </Button>
     </section>

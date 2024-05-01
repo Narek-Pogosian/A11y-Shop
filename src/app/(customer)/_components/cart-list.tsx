@@ -6,13 +6,15 @@ import { useCart } from "@/hooks/use-cart";
 import { currency } from "@/lib/utils";
 import { Trash } from "lucide-react";
 import Link from "next/link";
+import Counter from "@/components/counter";
 
 interface CartListProps {
   firstLinkRef: React.RefObject<HTMLAnchorElement>;
 }
 
 function CartList({ firstLinkRef }: CartListProps) {
-  const { cartItems, deleteFromCart } = useCart();
+  const { cartItems, deleteFromCart, decrementCartItem, incrementCartItem } =
+    useCart();
 
   return (
     <ScrollArea className="h-full pr-3">
@@ -63,7 +65,11 @@ function CartList({ firstLinkRef }: CartListProps) {
                   </span>
                 </div>
 
-                <div>Counter {item.quantity}</div>
+                <Counter
+                  count={item.quantity}
+                  decrement={() => decrementCartItem(item.productId)}
+                  increment={() => incrementCartItem(item.productId)}
+                />
               </div>
             </div>
           </li>
