@@ -1,7 +1,7 @@
 import { type Product } from "@/server/db/schema";
 import { Skeleton } from "@/components/ui/skeleton";
 import { currency } from "@/lib/utils";
-import AddToCart from "../../_components/add-to-cart";
+import ProductCardAddToCart from "./product-card-add-to-cart";
 import Link from "next/link";
 
 interface ProductCardProps {
@@ -38,7 +38,7 @@ export function ProductCard({ product }: ProductCardProps) {
             {currency(parseFloat(product.price))}
           </span>
         </div>
-        <AddToCart product={product} />
+        <ProductCardAddToCart product={product} />
       </div>
     </article>
   );

@@ -1,4 +1,5 @@
 import { getProductBySlug } from "@/server/data-access/queries";
+import ProductCounter from "../../_components/product-counter";
 
 interface ProductContentProps {
   slug: string;
@@ -14,11 +15,10 @@ async function ProductContent({ slug }: ProductContentProps) {
   return (
     <div>
       <h2 className="mb-2 text-xl font-bold">{product.name}</h2>
-      <p className="font-medium text-muted-foreground">{product.description}</p>
-
-      <div className="mt-8 font-bold text-red-600">
-        TODO: Counter and add to cart
-      </div>
+      <p className="mb-6 font-medium text-muted-foreground">
+        {product.description}
+      </p>
+      <ProductCounter product={product} />
     </div>
   );
 }

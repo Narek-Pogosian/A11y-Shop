@@ -49,11 +49,11 @@ function CartDrawer() {
         <div>
           <div className="space-y-2 py-6">
             <div className="flex items-center justify-between">
-              <p className="text-lg font-medium">Shipment:</p>
+              <p className="text-lg font-bold">Shipment:</p>
               <p className="text-lg font-medium">{currency(0)}</p>
             </div>
             <div className="flex items-center justify-between">
-              <p className="text-lg font-medium">Total:</p>
+              <p className="text-lg font-bold">Total:</p>
               <p className="text-lg font-medium">
                 {getTotalCartPrice(cartItems)}
               </p>
