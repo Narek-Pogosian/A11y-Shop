@@ -21,6 +21,8 @@ function CartDrawer() {
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
 
   function handleOpenFocus(e: Event) {
+    if (!firstLinkRef.current) return;
+
     e.preventDefault();
     firstLinkRef.current?.focus();
   }
@@ -45,22 +47,30 @@ function CartDrawer() {
         <SheetHeader>
           <SheetTitle>Your Cart</SheetTitle>
         </SheetHeader>
-        <CartList firstLinkRef={firstLinkRef} />
-        <div>
-          <div className="space-y-2 py-6">
-            <div className="flex items-center justify-between">
-              <p className="text-lg font-bold">Shipment:</p>
-              <p className="text-lg font-medium">{currency(0)}</p>
+        {cartItems.length > 0 ? (
+          <>
+            <CartList firstLinkRef={firstLinkRef} />
+            <div>
+              <div className="space-y-2 py-6">
+                <div className="flex items-center justify-between">
+                  <p className="text-lg font-bold">Shipment:</p>
+                  <p className="text-lg font-medium">{currency(0)}</p>
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-lg font-bold">Total:</p>
+                  <p className="text-lg font-medium">
+                    {getTotalCartPrice(cartItems)}
+                  </p>
+                </div>
+              </div>
+              <Button className="w-full">Proceed to checkout</Button>
             </div>
-            <div className="flex items-center justify-between">
-              <p className="text-lg font-bold">Total:</p>
-              <p className="text-lg font-medium">
-                {getTotalCartPrice(cartItems)}
-              </p>
-            </div>
+          </>
+        ) : (
+          <div className="flex h-full flex-col items-center justify-center">
+            <p className="mb-4 text-xl font-semibold">Your cart is empty</p>
           </div>
-          <Button className="w-full">Proceed to checkout</Button>
-        </div>
+        )}
       </SheetContent>
     </Sheet>
   );

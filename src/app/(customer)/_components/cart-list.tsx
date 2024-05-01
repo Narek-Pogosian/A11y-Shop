@@ -25,8 +25,8 @@ function CartList({ firstLinkRef }: CartListProps) {
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={item.product.image ?? ""}
-                width={120}
-                height={80}
+                width={130}
+                height={90}
                 alt={item.product.altText ?? ""}
                 className="rounded"
                 aria-hidden
@@ -49,20 +49,23 @@ function CartList({ firstLinkRef }: CartListProps) {
                 <Button
                   variant="destructive"
                   size="icon"
-                  className="size-9"
+                  className="size-8"
                   onClick={() => deleteFromCart(item.productId)}
                 >
-                  <Trash className="size-5" />{" "}
+                  <Trash className="size-5" aria-hidden />
                   <span className="sr-only">Remove</span>
                 </Button>
               </div>
 
-              <div className="mt-auto flex w-full justify-between">
+              <div className="mt-auto flex w-full items-center justify-between">
                 <div className="font-medium text-muted-foreground">
-                  <span className="sr-only">Price: </span>
-                  <span>
+                  <p className="sr-only">
+                    Price is{" "}
                     {currency(parseFloat(item.product.price) * item.quantity)}
-                  </span>
+                  </p>
+                  <p aria-hidden>
+                    {currency(parseFloat(item.product.price) * item.quantity)}
+                  </p>
                 </div>
 
                 <Counter
