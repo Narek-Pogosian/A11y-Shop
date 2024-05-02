@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/hooks/use-cart";
 import { currency } from "@/lib/utils";
 import { Trash } from "lucide-react";
+import { announce } from "@react-aria/live-announcer";
 import Link from "next/link";
 import Counter from "@/components/counter";
 
@@ -15,6 +16,11 @@ interface CartListProps {
 function CartList({ firstLinkRef }: CartListProps) {
   const { cartItems, deleteFromCart, decrementCartItem, incrementCartItem } =
     useCart();
+
+  function handleRemoveProductFromCart(productId: number) {
+    deleteFromCart(productId);
+    announce("Product removed from cart", "polite");
+  }
 
   return (
     <ScrollArea className="h-full pr-3">
@@ -50,7 +56,7 @@ function CartList({ firstLinkRef }: CartListProps) {
                   variant="destructive"
                   size="icon"
                   className="size-8"
-                  onClick={() => deleteFromCart(item.productId)}
+                  onClick={() => handleRemoveProductFromCart(item.productId)}
                 >
                   <Trash className="size-5" aria-hidden />
                   <span className="sr-only">Remove</span>

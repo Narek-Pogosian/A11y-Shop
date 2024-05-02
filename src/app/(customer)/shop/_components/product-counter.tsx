@@ -4,8 +4,9 @@ import { type Product } from "@/server/db/schema";
 import { ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import Counter from "@/components/counter";
 import { useCart } from "@/hooks/use-cart";
+import { announce } from "@react-aria/live-announcer";
+import Counter from "@/components/counter";
 
 interface ProductCounterProps {
   product: Product;
@@ -17,6 +18,7 @@ function ProductCounter({ product }: ProductCounterProps) {
 
   function handleAddToCart() {
     addToCart({ product, quantity: count, productId: product.id });
+    announce(`Added ${count} ${product.name} to cart`, "assertive");
     setCount(1);
   }
 
