@@ -11,9 +11,10 @@ import {
 import { useCart } from "@/hooks/use-cart";
 import { useIsMounted } from "@/hooks/use-is-mounted";
 import { ShoppingBag } from "lucide-react";
-import CartList from "./cart-list";
 import { useRef } from "react";
-import { currency, getTotalCartPrice } from "@/lib/utils";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import CartList from "./cart-list";
+import CartInfo from "./cart-info";
 
 function CartDrawer() {
   const { cartItems } = useCart();
@@ -49,22 +50,13 @@ function CartDrawer() {
         </SheetHeader>
         {cartItems.length > 0 ? (
           <>
-            <CartList firstLinkRef={firstLinkRef} />
-            <div>
-              <div className="space-y-2 py-6">
-                <div className="flex items-center justify-between">
-                  <p className="text-lg font-bold">Shipment:</p>
-                  <p className="text-lg font-medium">{currency(0)}</p>
-                </div>
-                <div className="flex items-center justify-between">
-                  <p className="text-lg font-bold">Total:</p>
-                  <p className="text-lg font-medium">
-                    {getTotalCartPrice(cartItems)}
-                  </p>
-                </div>
-              </div>
+            <ScrollArea className="h-full pr-3">
+              <CartList firstLinkRef={firstLinkRef} />
+            </ScrollArea>
+            <>
+              <CartInfo />
               <Button className="w-full">Proceed to checkout</Button>
-            </div>
+            </>
           </>
         ) : (
           <div className="flex h-full flex-col items-center justify-center">
