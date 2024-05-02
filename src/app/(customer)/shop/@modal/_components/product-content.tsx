@@ -1,5 +1,6 @@
 import { getProductBySlug } from "@/server/data-access/queries";
 import ProductCounter from "../../_components/product-counter";
+import { notFound } from "next/navigation";
 
 interface ProductContentProps {
   slug: string;
@@ -8,9 +9,7 @@ interface ProductContentProps {
 async function ProductContent({ slug }: ProductContentProps) {
   const product = await getProductBySlug(slug);
 
-  if (!product) {
-    return <div>Product not found</div>;
-  }
+  if (!product) notFound();
 
   return (
     <div>

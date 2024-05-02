@@ -7,6 +7,7 @@ interface CounterProps {
   decrement: () => void;
 }
 
+// TODO: Fix screen reader support.
 function Counter({ count, decrement, increment }: CounterProps) {
   return (
     <div className="flex gap-2">
