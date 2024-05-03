@@ -9,7 +9,7 @@ import Link from "next/link";
 import Counter from "@/components/counter";
 
 interface CartListProps {
-  firstLinkRef: React.RefObject<HTMLAnchorElement>;
+  firstLinkRef?: React.RefObject<HTMLAnchorElement>;
 }
 
 function CartList({ firstLinkRef }: CartListProps) {
@@ -22,7 +22,7 @@ function CartList({ firstLinkRef }: CartListProps) {
   }
 
   return (
-    <ul className="space-y-6">
+    <ul className="min-w-96 space-y-6">
       {cartItems.map((item, index) => (
         <li key={item.productId} className="flex gap-4">
           {item.product.image ? (

@@ -8,7 +8,7 @@ function Header() {
       <div className="container flex items-center justify-between">
         <div>
           <Link href="/" className="text-lg font-bold uppercase">
-            A11y Shop
+            Logo
           </Link>
         </div>
         <div className="flex items-center gap-1">

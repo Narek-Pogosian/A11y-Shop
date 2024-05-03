@@ -15,6 +15,7 @@ import { useRef } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import CartList from "./cart-list";
 import CartInfo from "./cart-info";
+import Link from "next/link";
 
 function CartDrawer() {
   const { cartItems } = useCart();
@@ -55,7 +56,11 @@ function CartDrawer() {
             </ScrollArea>
             <>
               <CartInfo />
-              <Button className="w-full">Proceed to checkout</Button>
+              <Button asChild>
+                <Link href="/checkout" className="w-full">
+                  Proceed to checkout
+                </Link>
+              </Button>
             </>
           </>
         ) : (

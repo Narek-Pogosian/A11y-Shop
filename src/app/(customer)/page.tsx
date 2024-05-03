@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function HomePage() {
   return (
-    <div className="pt-14 text-center">
+    <div className="pt-24 text-center">
       <h1 className="mb-2 text-5xl font-bold">Welcome to A11y Shop</h1>
       <p className="mb-8 text-lg font-medium text-muted-foreground">
         Browse through our products
