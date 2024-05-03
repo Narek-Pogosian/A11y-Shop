@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="flex min-h-full flex-col">
         <SkipLink />
         <Header />
-        <main className="container flex-1 py-8" tabIndex={-1}>
+        <main className="container flex-1 py-6" tabIndex={-1}>
           {children}
         </main>
         <Footer />

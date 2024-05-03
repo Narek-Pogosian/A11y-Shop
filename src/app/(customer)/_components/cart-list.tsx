@@ -22,7 +22,7 @@ function CartList({ firstLinkRef }: CartListProps) {
   }
 
   return (
-    <ul className="min-w-96 space-y-6">
+    <ul className="min-w-80 space-y-6">
       {cartItems.map((item, index) => (
         <li key={item.productId} className="flex gap-4">
           {item.product.image ? (

@@ -1,8 +1,8 @@
 import { z } from "zod";
 
 export const checkoutSchema = z.object({
-  firstname: z.string().min(1, "Please enter your first name").trim(),
-  lastname: z.string().min(1, "Please enter your last name").trim(),
+  firstName: z.string().min(1, "Please enter your first name").trim(),
+  lastName: z.string().min(1, "Please enter your last name").trim(),
   email: z.string().email({ message: "Please enter a valid email" }).trim(),
   address: z.string().min(1, "Please enter your address").trim(),
   city: z.string().min(1, "Please enter your city").trim(),
@@ -27,3 +27,5 @@ export const checkoutSchema = z.object({
     .regex(/^\d{3}$/)
     .trim(),
 });
+
+export type CheckoutSchemaType = z.infer<typeof checkoutSchema>;
