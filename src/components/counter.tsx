@@ -1,5 +1,6 @@
 import { Minus, Plus } from "lucide-react";
 import { Button } from "./ui/button";
+import { announce } from "@react-aria/live-announcer";
 
 interface CounterProps {
   count: number;
@@ -7,15 +8,32 @@ interface CounterProps {
   decrement: () => void;
 }
 
-// TODO: Fix screen reader support.
 function Counter({ count, decrement, increment }: CounterProps) {
+  function handleIncrement() {
+    if (count < 100) {
+      increment();
+      announce(`Incremented count to ${count + 1}`, "assertive");
+    } else {
+      announce("Maximum count reached", "assertive");
+    }
+  }
+
+  function handleDecrement() {
+    if (count > 1) {
+      decrement();
+      announce(`Decremented count to ${count - 1}`, "assertive");
+    } else {
+      announce("Minimum count reached", "assertive");
+    }
+  }
+
   return (
-    <div className="flex gap-2">
+    <section className="flex gap-2">
       <h3 id="amount" className="sr-only">
         Edit amount, currently set to {count}
       </h3>
       <Button
-        onClick={decrement}
+        onClick={handleDecrement}
         variant="outline"
         size="icon"
         className="size-8
@@ -25,9 +43,6 @@ function Counter({ count, decrement, increment }: CounterProps) {
         <span className="sr-only">decrement</span>
       </Button>
 
-      <div role="region" aria-live="assertive" className="sr-only">
-        Current count is {count}
-      </div>
       <span
         className="flex w-6 items-center justify-center font-medium"
         aria-hidden
@@ -36,7 +51,7 @@ function Counter({ count, decrement, increment }: CounterProps) {
       </span>
 
       <Button
-        onClick={increment}
+        onClick={handleIncrement}
         variant="outline"
         size="icon"
         className="size-8
@@ -45,7 +60,7 @@ function Counter({ count, decrement, increment }: CounterProps) {
         <Plus className="size-4" aria-hidden />
         <span className="sr-only">increment</span>
       </Button>
-    </div>
+    </section>
   );
 }
 
