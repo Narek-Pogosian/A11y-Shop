@@ -4,11 +4,11 @@ import Link from "next/link";
 
 function Header() {
   return (
-    <header className="border-b py-2">
+    <header className="py-2">
       <div className="container flex items-center justify-between">
         <div>
-          <Link href="/" className="text-lg font-bold uppercase">
-            Logo
+          <Link href="/" className="text-lg font-extrabold uppercase">
+            A11y
           </Link>
         </div>
         <div className="flex items-center gap-1">

@@ -45,7 +45,10 @@ function CartDrawer() {
           )}
         </Button>
       </SheetTrigger>
-      <SheetContent className="flex flex-col" onOpenAutoFocus={handleOpenFocus}>
+      <SheetContent
+        className="flex flex-col px-2 py-6 sm:px-6"
+        onOpenAutoFocus={handleOpenFocus}
+      >
         <SheetHeader>
           <SheetTitle>Your Cart</SheetTitle>
         </SheetHeader>

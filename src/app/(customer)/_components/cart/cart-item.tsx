@@ -4,7 +4,7 @@ import { type CartItemType } from "@/context/cart-context/cart.types";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/hooks/use-cart";
 import { currency } from "@/lib/utils";
-import { Trash } from "lucide-react";
+import { X } from "lucide-react";
 import { announce } from "@react-aria/live-announcer";
 import { forwardRef } from "react";
 import Counter from "@/components/counter";
@@ -51,18 +51,23 @@ const CartItem = forwardRef<HTMLAnchorElement, CartItemProps>(
               {cartItem.product.name}
             </Link>
             <Button
-              variant="destructive"
+              variant="ghost"
               size="icon"
-              className="size-8"
+              className="size-7 text-muted-foreground hover:bg-transparent hover:text-destructive"
               onClick={() => handleRemoveProductFromCart(cartItem.productId)}
             >
-              <Trash className="size-5" aria-hidden />
+              <X className="size-5" aria-hidden />
               <span className="sr-only">Remove</span>
             </Button>
           </div>
 
           <div className="mt-auto flex w-full items-center justify-between">
-            <div className="font-medium text-muted-foreground">
+            <Counter
+              count={cartItem.quantity}
+              decrement={() => decrementCartItem(cartItem.productId)}
+              increment={() => incrementCartItem(cartItem.productId)}
+            />
+            <div className="font-semibold text-muted-foreground">
               <p className="sr-only">
                 Price is{" "}
                 {currency(
@@ -75,12 +80,6 @@ const CartItem = forwardRef<HTMLAnchorElement, CartItemProps>(
                 )}
               </p>
             </div>
-
-            <Counter
-              count={cartItem.quantity}
-              decrement={() => decrementCartItem(cartItem.productId)}
-              increment={() => incrementCartItem(cartItem.productId)}
-            />
           </div>
         </div>
       </li>
