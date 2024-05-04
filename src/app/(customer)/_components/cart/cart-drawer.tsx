@@ -13,8 +13,8 @@ import { useIsMounted } from "@/hooks/use-is-mounted";
 import { ShoppingBag } from "lucide-react";
 import { useRef } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import CartList from "./cart-list";
 import CartInfo from "./cart-info";
+import CartItem from "./cart-item";
 import Link from "next/link";
 
 function CartDrawer() {
@@ -52,7 +52,15 @@ function CartDrawer() {
         {cartItems.length > 0 ? (
           <>
             <ScrollArea className="h-full pr-3">
-              <CartList firstLinkRef={firstLinkRef} />
+              <ul className="min-w-80 space-y-6">
+                {cartItems.map((item, index) => (
+                  <CartItem
+                    key={item.productId}
+                    ref={index === 0 ? firstLinkRef : undefined}
+                    cartItem={item}
+                  />
+                ))}
+              </ul>
             </ScrollArea>
             <>
               <CartInfo />

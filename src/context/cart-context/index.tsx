@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useEffect, useReducer } from "react";
-import { type CartItem, type CartContextType } from "./cart.types";
+import { type CartItemType, type CartContextType } from "./cart.types";
 import {
   getCartFromLocalStorage,
   saveCartInLocalStorage,
@@ -20,7 +20,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     saveCartInLocalStorage(cartItems);
   }, [cartItems]);
 
-  const addToCart = useCallback((item: CartItem) => {
+  const addToCart = useCallback((item: CartItemType) => {
     dispatch({ type: "ADD", item });
   }, []);
 

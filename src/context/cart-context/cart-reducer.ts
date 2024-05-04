@@ -1,16 +1,16 @@
-import { type CartItem } from "./cart.types";
+import { type CartItemType } from "./cart.types";
 
 export type CartActionType =
-  | { type: "ADD"; item: CartItem }
+  | { type: "ADD"; item: CartItemType }
   | { type: "DELETE"; productId: number }
   | { type: "INCREMENT"; productId: number }
   | { type: "DECREMENT"; productId: number }
   | { type: "RESET" };
 
 export const cartReducer = (
-  state: CartItem[],
+  state: CartItemType[],
   action: CartActionType,
-): CartItem[] => {
+): CartItemType[] => {
   switch (action.type) {
     case "ADD": {
       const index = state.findIndex(

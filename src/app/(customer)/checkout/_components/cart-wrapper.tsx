@@ -1,12 +1,23 @@
 "use client";
 
+import CartInfo from "../../_components/cart/cart-info";
+import CartItem from "../../_components/cart/cart-item";
 import { useIsMounted } from "@/hooks/use-is-mounted";
-import CartList from "../../_components/cart-list";
-import CartInfo from "../../_components/cart-info";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/hooks/use-cart";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 function CartWrapper() {
   const isMounted = useIsMounted();
+  const router = useRouter();
+  const { cartItems } = useCart();
+
+  useEffect(() => {
+    if (cartItems.length === 0) {
+      router.replace("/");
+    }
+  }, [cartItems, router]);
 
   if (!isMounted) {
     return null;
@@ -28,7 +39,11 @@ function CartWrapper() {
       >
         Skip to form
       </Button>
-      <CartList />
+      <ul className="min-w-80 space-y-6">
+        {cartItems.map((item) => (
+          <CartItem key={item.productId} cartItem={item} />
+        ))}
+      </ul>
       <CartInfo />
     </>
   );

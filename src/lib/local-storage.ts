@@ -1,6 +1,6 @@
 "use client";
 
-import { type CartItem } from "@/context/cart-context/cart.types";
+import { type CartItemType } from "@/context/cart-context/cart.types";
 
 const CART_KEY = "food-cart";
 
@@ -17,10 +17,10 @@ const saveToLocalStorage = (key: StorageKey, data: unknown) => {
 };
 
 export const getCartFromLocalStorage = () => {
-  const data = getFromLocalStorage("food-cart") as CartItem[] | null;
+  const data = getFromLocalStorage("food-cart") as CartItemType[] | null;
   return data ?? [];
 };
 
-export const saveCartInLocalStorage = (cart: CartItem[]) => {
+export const saveCartInLocalStorage = (cart: CartItemType[]) => {
   saveToLocalStorage("food-cart", cart);
 };
