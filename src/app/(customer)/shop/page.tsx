@@ -5,14 +5,16 @@ import {
 } from "./_components/products-list";
 import PageTitle from "@/components/page-title";
 
-export const dynamic = "force-dynamic";
-
 function ShopPage({ searchParams }: PageProps) {
   return (
     <>
       <PageTitle>Shop</PageTitle>
 
-      <Suspense fallback={<ProductsListSkeleton />}>
+      <Suspense
+        fallback={
+          <ProductsListSkeleton key={Object.values(searchParams).join("")} />
+        }
+      >
         <ProductsList searchParams={searchParams} />
       </Suspense>
     </>

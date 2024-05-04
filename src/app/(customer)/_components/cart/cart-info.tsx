@@ -8,13 +8,15 @@ function CartInfo() {
 
   return (
     <div className="mt-4 space-y-2 border-t py-6">
+      <p className="flex items-center justify-between">
+        <span className="text-lg font-bold">Shipment:</span>
+        <span className="text-lg font-medium">{currency(0)}</span>
+      </p>
       <div className="flex items-center justify-between">
-        <p className="text-lg font-bold">Shipment:</p>
-        <p className="text-lg font-medium">{currency(0)}</p>
-      </div>
-      <div className="flex items-center justify-between">
-        <p className="text-lg font-bold">Total:</p>
-        <p className="text-lg font-medium">{getTotalCartPrice(cartItems)}</p>
+        <span className="text-lg font-bold">Total:</span>
+        <span className="text-lg font-medium">
+          {getTotalCartPrice(cartItems)}
+        </span>
       </div>
     </div>
   );

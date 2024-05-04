@@ -20,7 +20,7 @@ async function ProductPage({ params }: PageProps<"slug">) {
           <p aria-hidden className="mb-2 text-xl font-bold">
             {currency(parseFloat(product.price))}
           </p>
-          <p className="mb-8 max-w-lg text-muted-foreground">
+          <p className="mb-8 max-w-lg text-lg text-muted-foreground">
             {product.description}
           </p>
           <ProductCounter product={product} />

@@ -5,5 +5,6 @@ type Category = Record<(typeof categoryEnum.enumValues)[number], string>;
 export const categories: Category = {
   dessert: "Dessert",
   fruit: "Fruit",
-  vegetable: "Vegetable",
+  berry: "Berry",
+  drink: "Drink",
 };

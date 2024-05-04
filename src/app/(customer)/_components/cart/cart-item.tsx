@@ -53,7 +53,7 @@ const CartItem = forwardRef<HTMLAnchorElement, CartItemProps>(
             <Button
               variant="ghost"
               size="icon"
-              className="size-7 text-muted-foreground hover:bg-transparent hover:text-destructive"
+              className="size-7 text-muted-foreground hover:text-destructive"
               onClick={() => handleRemoveProductFromCart(cartItem.productId)}
             >
               <X className="size-5" aria-hidden />

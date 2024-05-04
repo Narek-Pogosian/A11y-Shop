@@ -19,8 +19,9 @@ export const createTable = pgTableCreator((name) => `accessible-shop_${name}`);
 
 export const categoryEnum = pgEnum("category", [
   "fruit",
-  "vegetable",
+  "berry",
   "dessert",
+  "drink",
 ]);
 
 export const products = createTable(

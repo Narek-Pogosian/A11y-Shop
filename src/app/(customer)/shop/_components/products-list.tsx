@@ -1,11 +1,13 @@
 import { getProducts } from "@/server/data-access/queries";
 import { ProductCard, ProductCardSkeleton } from "./product-card";
+import { unstable_noStore as noStore } from "next/cache";
 
 interface ProductsListProps {
   searchParams: PageProps["searchParams"];
 }
 
 export async function ProductsList({ searchParams }: ProductsListProps) {
+  noStore();
   console.log(searchParams);
   const products = await getProducts();
 
