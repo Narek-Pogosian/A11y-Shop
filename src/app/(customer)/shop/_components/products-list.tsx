@@ -46,7 +46,7 @@ export async function ProductsList({ searchParams }: ProductsListProps) {
 }
 
 export function ProductsListSkeleton() {
-  const products = new Array(20).fill(null);
+  const products = new Array(PAGE_SIZE).fill(null);
 
   return (
     <ul className="grid grow gap-4 xs:grid-cols-2 md:grid-cols-3 lg:gap-10 xl:grid-cols-4">

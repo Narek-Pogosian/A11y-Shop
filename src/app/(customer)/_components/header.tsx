@@ -3,15 +3,20 @@ import CartDrawer from "./cart/cart-drawer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+export function Logo() {
+  return (
+    <Link href="/" className="text-lg font-extrabold uppercase">
+      A11y <span className="text-secondary -ml-1">Shop</span>
+    </Link>
+  );
+}
+
 function Header() {
   return (
     <header className="border-b py-2">
       <div className="container flex items-center justify-between">
         <div className="flex items-center md:gap-10">
-          <Link href="/" className="text-lg font-extrabold uppercase">
-            A11y{" "}
-            <span className="-ml-1 text-teal-700 dark:text-teal-500">Shop</span>
-          </Link>
+          <Logo />
           <nav>
             <ul className="flex">
               <li>
