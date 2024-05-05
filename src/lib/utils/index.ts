@@ -1,4 +1,4 @@
-import { type CartItem } from "@/context/cart-context/cart.types";
+import { type CartItemType } from "@/context/cart-context/cart.types";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -13,7 +13,7 @@ export function currency(price: number) {
   }).format(price);
 }
 
-export function getTotalCartPrice(cartItems: CartItem[]) {
+export function getTotalCartPrice(cartItems: CartItemType[]) {
   const total = cartItems.reduce((total, item) => {
     return total + parseFloat(item.product.price) * item.quantity;
   }, 0);
