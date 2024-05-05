@@ -1,6 +1,7 @@
 import { getProducts } from "@/server/data-access/queries";
 import { ProductCard, ProductCardSkeleton } from "./product-card";
 import { unstable_noStore as noStore } from "next/cache";
+import { productsSearchParamsSchema } from "@/lib/validations/products-searchparams";
 
 interface ProductsListProps {
   searchParams: PageProps["searchParams"];
@@ -8,8 +9,15 @@ interface ProductsListProps {
 
 export async function ProductsList({ searchParams }: ProductsListProps) {
   noStore();
-  console.log(searchParams);
-  const products = await getProducts();
+
+  const { error } = productsSearchParamsSchema.safeParse(searchParams);
+
+  const keysWithErrors = Object.keys(error?.flatten().fieldErrors ?? {});
+  keysWithErrors.forEach((key) => {
+    delete searchParams[key];
+  });
+
+  const products = await getProducts(searchParams);
 
   return (
     <ul className="grid grow gap-4 xs:grid-cols-2 md:grid-cols-3 lg:gap-10 xl:grid-cols-4">
