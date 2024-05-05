@@ -19,8 +19,8 @@ function ProductCardAddToCart({ product }: ProductCardAddProps) {
   }
 
   return (
-    <Button size="icon" className="relative" onClick={handleAddToCart}>
-      <ShoppingBag className="size-6" aria-hidden />
+    <Button size="icon" className="relative size-8" onClick={handleAddToCart}>
+      <ShoppingBag className="size-5" aria-hidden />
       <span className="sr-only">Add to cart.</span>
     </Button>
   );

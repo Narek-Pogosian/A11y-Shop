@@ -1,6 +1,6 @@
-import { Providers } from "@/components/providers";
 import "@/globals.css";
 
+import { Providers } from "@/components/providers";
 import { Libre_Franklin } from "next/font/google";
 
 const inter = Libre_Franklin({

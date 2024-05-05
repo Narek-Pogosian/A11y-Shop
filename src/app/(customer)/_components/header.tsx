@@ -1,26 +1,28 @@
 import ThemeToggle from "@/components/theme-toggle";
 import CartDrawer from "./cart/cart-drawer";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 function Header() {
   return (
-    <header className="py-2">
+    <header className="border-b py-2">
       <div className="container flex items-center justify-between">
         <div className="flex items-center md:gap-10">
-          <Link href="/" className="text-2xl font-extrabold uppercase">
-            A11y
+          <Link href="/" className="text-lg font-extrabold uppercase">
+            A11y{" "}
+            <span className="-ml-1 text-teal-700 dark:text-teal-500">Shop</span>
           </Link>
           <nav>
-            <ul className="flex items-center gap-4">
+            <ul className="flex">
               <li>
-                <Link href="/shop" className="font-semibold hover:underline">
-                  Shop
-                </Link>
+                <Button asChild variant="ghost">
+                  <Link href="/shop">Shop</Link>
+                </Button>
               </li>
               <li>
-                <Link href="#" className="font-semibold hover:underline">
-                  About
-                </Link>
+                <Button asChild variant="ghost">
+                  <Link href="#">About</Link>
+                </Button>
               </li>
             </ul>
           </nav>
