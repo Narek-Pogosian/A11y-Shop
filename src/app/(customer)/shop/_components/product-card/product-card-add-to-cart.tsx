@@ -25,7 +25,12 @@ function ProductCardAddToCart({ product }: ProductCardAddProps) {
   }
 
   return (
-    <Button size="icon" className="relative size-8" onClick={handleAddToCart}>
+    <Button
+      size="icon"
+      className="relative size-8 disabled:opacity-100"
+      onClick={handleAddToCart}
+      disabled={hasAdded}
+    >
       {!hasAdded ? (
         <ShoppingBag className="size-5" aria-hidden />
       ) : (

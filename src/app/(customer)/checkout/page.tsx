@@ -17,7 +17,7 @@ function CheckoutPage() {
           <CartWrapper />
         </section>
         <section
-          className="rounded border bg-element p-2 py-4 xs:px-6 lg:order-first xl:col-span-2"
+          className="sticky top-20 h-fit rounded border bg-element p-2 py-4 xs:px-6 lg:order-first xl:col-span-2"
           aria-labelledby="checkout-form-section"
         >
           <h2 className="mb-4 text-xl font-bold" id="checkout-form-section">

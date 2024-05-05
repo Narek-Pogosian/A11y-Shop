@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export function Logo() {
   return (
-    <Link href="/" className="text-lg font-extrabold uppercase">
+    <Link href="/" className="font-extrabold uppercase sm:text-lg">
       A11y <span className="text-secondary -ml-1">Shop</span>
     </Link>
   );
@@ -15,17 +15,17 @@ function Header() {
   return (
     <header className="sticky inset-0 z-10 border-b bg-background/75 py-2 backdrop-blur-md">
       <div className="container flex items-center justify-between">
-        <div className="flex items-center md:gap-10">
+        <div className="flex items-center gap-3 md:gap-10">
           <Logo />
           <nav>
             <ul className="flex">
               <li>
-                <Button asChild variant="ghost">
+                <Button asChild variant="ghost" className="max-sm:px-2">
                   <Link href="/shop">Shop</Link>
                 </Button>
               </li>
               <li>
-                <Button asChild variant="ghost">
+                <Button asChild variant="ghost" className="max-sm:px-2">
                   <Link href="#">About</Link>
                 </Button>
               </li>

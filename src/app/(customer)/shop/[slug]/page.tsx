@@ -12,7 +12,8 @@ async function ProductPage({ params }: PageProps<"slug">) {
   return (
     <>
       <PageTitle>{product.name}</PageTitle>
-      <div className="grid gap-8 sm:grid-cols-2">
+
+      <div className="grid gap-8 md:grid-cols-2">
         <div>
           <p className="sr-only">
             Price is {currency(parseFloat(product.price))}
@@ -30,7 +31,7 @@ async function ProductPage({ params }: PageProps<"slug">) {
           <img
             src={product.image}
             alt={product.altText ?? ""}
-            className="rounded"
+            className="aspect-[3/2] rounded object-cover"
           />
         )}
       </div>
