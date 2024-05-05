@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/hooks/use-cart";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 function CartWrapper() {
   const isMounted = useIsMounted();
@@ -39,11 +40,13 @@ function CartWrapper() {
       >
         Skip to form
       </Button>
-      <ul className="min-w-80 space-y-6">
-        {cartItems.map((item) => (
-          <CartItem key={item.productId} cartItem={item} />
-        ))}
-      </ul>
+      <ScrollArea>
+        <ul className="max-h-[350px] min-w-80 space-y-6 pr-3">
+          {cartItems.map((item) => (
+            <CartItem key={item.productId} cartItem={item} />
+          ))}
+        </ul>
+      </ScrollArea>
       <CartInfo />
     </>
   );

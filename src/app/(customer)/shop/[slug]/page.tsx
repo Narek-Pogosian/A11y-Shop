@@ -1,10 +1,14 @@
-import PageTitle from "@/components/page-title";
 import { getProductBySlug } from "@/server/data-access/queries";
 import { notFound } from "next/navigation";
-import ProductCounter from "../_components/product-counter";
 import { currency } from "@/lib/utils";
+import PageTitle from "@/components/page-title";
+import ProductCounter from "../_components/product-counter";
 
 async function ProductPage({ params }: PageProps<"slug">) {
+  // Problably stupid but adding a tiny delay to make the navigation to details page smoother.
+  // Remove if the skeleton shell is changed to something else like a spinner.
+  await new Promise((resolve) => setTimeout(resolve, 100));
+
   const product = await getProductBySlug(params.slug);
 
   if (!product) notFound();
