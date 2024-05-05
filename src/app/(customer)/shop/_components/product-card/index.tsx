@@ -17,7 +17,8 @@ export function ProductCard({ product }: ProductCardProps) {
           <img
             src={product.image}
             alt={product.altText ?? ""}
-            className="h-full w-full object-cover"
+            loading="lazy"
+            className="h-full w-full "
           />
         ) : (
           <div className="h-full w-full bg-accent"></div>

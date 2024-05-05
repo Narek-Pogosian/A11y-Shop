@@ -11,16 +11,24 @@ import {
 import { useCart } from "@/hooks/use-cart";
 import { useIsMounted } from "@/hooks/use-is-mounted";
 import { ShoppingBag } from "lucide-react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { usePathname } from "next/navigation";
 import CartInfo from "./cart-info";
 import CartItem from "./cart-item";
 import Link from "next/link";
 
 function CartDrawer() {
+  const [isOpen, setIsOpen] = useState(false);
   const { cartItems } = useCart();
+
+  const pathname = usePathname();
   const isMounted = useIsMounted();
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    setIsOpen(() => false);
+  }, [pathname]);
 
   function handleOpenFocus(e: Event) {
     if (!firstLinkRef.current) return;
@@ -30,7 +38,7 @@ function CartDrawer() {
   }
 
   return (
-    <Sheet>
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <Button size="icon" variant="ghost" className="relative">
           <ShoppingBag className="size-6" aria-hidden />
@@ -55,7 +63,7 @@ function CartDrawer() {
         {cartItems.length > 0 ? (
           <>
             <ScrollArea className="h-full pr-3">
-              <ul className="min-w-80 space-y-6">
+              <ul className="min-w-80 space-y-8">
                 {cartItems.map((item, index) => (
                   <CartItem
                     key={item.productId}
@@ -67,8 +75,8 @@ function CartDrawer() {
             </ScrollArea>
             <>
               <CartInfo />
-              <Button asChild>
-                <Link href="/checkout" className="w-full">
+              <Button variant="secondary" asChild>
+                <Link href="/checkout" className="w-full text-xl">
                   Proceed to checkout
                 </Link>
               </Button>

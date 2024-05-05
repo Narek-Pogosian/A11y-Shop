@@ -13,7 +13,7 @@ export function Logo() {
 
 function Header() {
   return (
-    <header className="sticky inset-0 z-[9999] border-b bg-background/75 py-2 backdrop-blur-md">
+    <header className="sticky inset-0 z-10 border-b bg-background/75 py-2 backdrop-blur-md">
       <div className="container flex items-center justify-between">
         <div className="flex items-center md:gap-10">
           <Logo />
