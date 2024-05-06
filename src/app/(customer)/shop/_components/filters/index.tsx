@@ -14,9 +14,7 @@ function Filters({ searchParams }: FiltersProps) {
         <Filter className="mr-2 size-5" />
         All Filters
       </Button>
-      <SortingSelect
-        initalValue={{ orderBy: searchParams.orderBy, dir: searchParams.dir }}
-      />
+      <SortingSelect />
     </div>
   );
 }

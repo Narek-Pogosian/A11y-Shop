@@ -11,29 +11,43 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useIsMounted } from "@/hooks/use-is-mounted";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useEffect, useState } from "react";
 
-interface SortingSelectProps {
-  initalValue: SortOptionValue;
-}
-
-function SortingSelect({ initalValue }: SortingSelectProps) {
+function SortingSelect() {
   const router = useRouter();
+  const isMounted = useIsMounted();
+  const searchParams = useSearchParams();
 
-  const defaultValue =
-    initalValue.dir && initalValue.orderBy ? JSON.stringify(initalValue) : "";
+  const [value, setValue] = useState<string>("");
+
+  useEffect(() => {
+    const val = {
+      orderBy: searchParams.get("orderBy") ?? "createdAt",
+      dir: searchParams.get("dir") ?? "desc",
+    };
+
+    setValue(JSON.stringify(val));
+  }, [searchParams]);
 
   function handleValueChange(value: string) {
+    setValue(value);
     // TODO: Add error handling and validation
     // eslint-disable-next-line
     router.push(setSortQuery(value ? JSON.parse(value) : ""));
   }
 
   return (
-    <Select defaultValue={defaultValue} onValueChange={handleValueChange}>
+    <Select value={value} onValueChange={handleValueChange}>
       <SelectTrigger className="w-fit min-w-[261px] rounded-full border-neutral-400 px-4 font-semibold dark:border-neutral-600">
         <span className="mr-2">Sort by:</span>{" "}
-        <SelectValue placeholder="Release Descending" />
+        {isMounted ? (
+          <SelectValue placeholder="Release Descending" />
+        ) : (
+          <Skeleton className="h-5 w-36" />
+        )}
       </SelectTrigger>
       <SelectContent
         ref={(ref) => {
@@ -45,8 +59,7 @@ function SortingSelect({ initalValue }: SortingSelectProps) {
       >
         {sortOptions.map((option) => (
           <SelectItem
-            // Makes sure Release Ascending has "" as value
-            value={option.value ? JSON.stringify(option.value) : ""}
+            value={JSON.stringify(option.value)}
             className="capitalize"
             key={option.label}
           >
