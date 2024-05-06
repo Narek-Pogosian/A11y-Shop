@@ -1,10 +1,26 @@
 import { type categoryEnum } from "@/server/db/schema";
 
-type Category = Record<(typeof categoryEnum.enumValues)[number], string>;
+type CategoryInfo = {
+  label: string;
+  image: string;
+};
+type Category = Record<(typeof categoryEnum.enumValues)[number], CategoryInfo>;
 
 export const categories: Category = {
-  dessert: "Dessert",
-  fruit: "Fruit",
-  berry: "Berry",
-  drink: "Drink",
+  dessert: {
+    label: "Dessert",
+    image: "",
+  },
+  fruit: {
+    label: "Fruit",
+    image: "",
+  },
+  berry: {
+    label: "Berry",
+    image: "",
+  },
+  drink: {
+    label: "Drink",
+    image: "",
+  },
 };

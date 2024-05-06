@@ -18,7 +18,7 @@ function ShopPage({ searchParams }: PageProps) {
   return (
     <div className="flex h-full flex-col">
       <PageTitle>Shop</PageTitle>
-      <Filters searchParams={searchParams} />
+      <Filters />
       <Suspense
         fallback={<ProductsListSkeleton />}
         key={Object.values(searchParams).join()}
