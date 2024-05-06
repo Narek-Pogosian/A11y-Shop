@@ -14,6 +14,12 @@ export async function ProductsList({ searchParams }: ProductsListProps) {
 
   const products = await getProducts(searchParams);
 
+  if (products.length === 0) {
+    return (
+      <div className="pt-12 text-center text-lg font-bold">No products</div>
+    );
+  }
+
   return (
     <>
       <ul
