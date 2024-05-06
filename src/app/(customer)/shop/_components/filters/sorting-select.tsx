@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  sortOptions,
-  type SortOptionValue,
-} from "@/lib/constants/sorting-options";
+import { sortOptions, type SortOptionValue } from "@/config/sorting-options";
 import {
   Select,
   SelectContent,

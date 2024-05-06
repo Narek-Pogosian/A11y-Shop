@@ -1,6 +1,6 @@
 import "server-only";
 import { type ProductsSearchParams } from "@/lib/validations/products-searchparams";
-import { PAGE_SIZE } from "@/lib/constants/config";
+import { PAGE_SIZE } from "@/config";
 import { products } from "../db/schema";
 import { db } from "../db";
 import { and, asc, desc, eq, gte, lte } from "drizzle-orm";

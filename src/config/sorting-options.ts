@@ -1,4 +1,4 @@
-import { type ProductsSearchParams } from "../validations/products-searchparams";
+import { type ProductsSearchParams } from "../lib/validations/products-searchparams";
 
 export interface SortOptionValue {
   orderBy: ProductsSearchParams["orderBy"];

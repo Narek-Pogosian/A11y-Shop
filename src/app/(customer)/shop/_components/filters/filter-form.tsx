@@ -13,7 +13,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { categories } from "@/lib/constants/categories";
+import { categories } from "@/config/categories";
 import { Button } from "@/components/ui/button";
 import { setSearchQueries } from "@/lib/utils/search-params";
 import { useRouter, useSearchParams } from "next/navigation";

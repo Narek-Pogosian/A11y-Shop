@@ -1,7 +1,7 @@
 import { getProducts } from "@/server/data-access/queries";
 import { ProductCard, ProductCardSkeleton } from "./product-card";
 import { unstable_noStore as noStore } from "next/cache";
-import { PAGE_SIZE } from "@/lib/constants/config";
+import { PAGE_SIZE } from "@/config";
 import { type ProductsSearchParams } from "@/lib/validations/products-searchparams";
 import Pagination from "./pagination";
 
