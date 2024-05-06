@@ -45,7 +45,7 @@ const CartItem = forwardRef<HTMLAnchorElement, CartItemProps>(
           <div className="flex w-full justify-between">
             <Link
               href={`/shop/${cartItem.product.slug}`}
-              className="text-lg font-semibold"
+              className="font-semibold"
               ref={ref}
             >
               {cartItem.product.name}

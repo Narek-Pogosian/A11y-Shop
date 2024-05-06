@@ -15,7 +15,7 @@ function loading() {
             <Skeleton className="h-6 w-full" />
           </div>
 
-          <Skeleton className="h-10 w-52" />
+          <Skeleton className="h-11 w-52" />
         </div>
 
         <Skeleton className="aspect-[3/2] " />

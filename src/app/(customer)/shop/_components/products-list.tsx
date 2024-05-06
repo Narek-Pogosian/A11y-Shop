@@ -1,22 +1,16 @@
 import { getProducts } from "@/server/data-access/queries";
 import { ProductCard, ProductCardSkeleton } from "./product-card";
 import { unstable_noStore as noStore } from "next/cache";
-import { productsSearchParamsSchema } from "@/lib/validations/products-searchparams";
 import { PAGE_SIZE } from "@/lib/constants/config";
+import { type ProductsSearchParams } from "@/lib/validations/products-searchparams";
 import Pagination from "./pagination";
 
 interface ProductsListProps {
-  searchParams: PageProps["searchParams"];
+  searchParams: ProductsSearchParams;
 }
 
 export async function ProductsList({ searchParams }: ProductsListProps) {
   noStore();
-  const { error } = productsSearchParamsSchema.safeParse(searchParams);
-
-  const keysWithErrors = Object.keys(error?.flatten().fieldErrors ?? {});
-  keysWithErrors.forEach((key) => {
-    delete searchParams[key];
-  });
 
   const products = await getProducts(searchParams);
 
