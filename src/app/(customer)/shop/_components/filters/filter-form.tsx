@@ -28,9 +28,10 @@ function FilterForm({ closeDialog }: FilterFormProps) {
   const form = useForm<ProductSearchFormType>({
     resolver: zodResolver(producSeachFormSchema),
     defaultValues: {
-      category: "",
-      minPrice: "0",
-      maxPrice: "100",
+      // @ts-expect-error We validate the searchparams in page.tsx.
+      category: searchParams.get("category") ?? "",
+      minPrice: searchParams.get("minPrice") ?? "0",
+      maxPrice: searchParams.get("maxPrice") ?? "100",
     },
   });
 
@@ -40,9 +41,6 @@ function FilterForm({ closeDialog }: FilterFormProps) {
     }
     if (values.minPrice === "0") {
       delete values.minPrice;
-    }
-    if (values.category === "") {
-      delete values.category;
     }
 
     const link = setSearchQueries(values);

@@ -3,7 +3,7 @@ import { type ProductsSearchParams } from "@/lib/validations/products-searchpara
 import { PAGE_SIZE } from "@/lib/constants/config";
 import { products } from "../db/schema";
 import { db } from "../db";
-import { and, asc, desc, eq } from "drizzle-orm";
+import { and, asc, desc, eq, gte, lte } from "drizzle-orm";
 
 function getOrderBy(
   orderBy: ProductsSearchParams["orderBy"],
@@ -26,13 +26,21 @@ export async function getProducts({
   dir,
   orderBy,
   page,
+  maxPrice,
+  minPrice,
 }: ProductsSearchParams) {
   const query = db
     .select()
     .from(products)
     .offset(Number(page) > 1 ? (Number(page) - 1) * PAGE_SIZE : 0)
     .limit(PAGE_SIZE)
-    .where(and(category ? eq(products.category, category) : undefined))
+    .where(
+      and(
+        category ? eq(products.category, category) : undefined,
+        maxPrice ? lte(products.price, maxPrice) : undefined,
+        minPrice ? gte(products.price, minPrice) : undefined,
+      ),
+    )
     .orderBy(getOrderBy(orderBy, dir));
 
   return query;

@@ -6,7 +6,7 @@
 export function setSearchQueries(
   values: Record<string, null | string | number | Array<number | string>>,
 ) {
-  const searchParams = new URLSearchParams();
+  const searchParams = new URLSearchParams(window.location.search);
   searchParams.delete("page");
 
   Object.entries(values).forEach(([key, value]) => {
