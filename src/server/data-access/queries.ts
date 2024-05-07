@@ -12,8 +12,8 @@ function getOrderBy(
   const order = dir === "asc" ? asc : desc;
 
   switch (orderBy) {
-    case "category":
-      return order(products.category);
+    case "name":
+      return order(products.name);
     case "price":
       return order(products.price);
     default:

@@ -38,10 +38,10 @@ function FilterForm({ closeDialog }: FilterFormProps) {
 
   function onSubmit(values: ProductSearchFormType) {
     if (values.maxPrice === "100") {
-      delete values.maxPrice;
+      values.maxPrice = undefined;
     }
     if (values.minPrice === "0") {
-      delete values.minPrice;
+      values.minPrice = undefined;
     }
 
     const link = setSearchQueries(values);

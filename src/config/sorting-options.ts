@@ -11,10 +11,10 @@ interface SortOptionsData {
 }
 
 export const sortOptions: SortOptionsData[] = [
-  { value: { orderBy: "createdAt", dir: "desc" }, label: "Release Descending" }, // Default sorting option
+  { value: { orderBy: "createdAt", dir: "desc" }, label: "Release Descending" },
   { value: { orderBy: "createdAt", dir: "asc" }, label: "Release Ascending" },
   { value: { orderBy: "price", dir: "desc" }, label: "Price Descending" },
   { value: { orderBy: "price", dir: "asc" }, label: "Price Ascending" },
-  { value: { orderBy: "category", dir: "desc" }, label: "Category Descending" },
-  { value: { orderBy: "category", dir: "asc" }, label: "Category Ascending" },
+  { value: { orderBy: "name", dir: "desc" }, label: "Name Descending" },
+  { value: { orderBy: "name", dir: "asc" }, label: "Name Ascending" },
 ];
