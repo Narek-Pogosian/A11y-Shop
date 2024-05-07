@@ -6,7 +6,12 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function currency(price: number) {
+export function currency(price: number | string) {
+  if (typeof price === "string") {
+    price = parseFloat(price);
+    if (isNaN(price)) return "0.00";
+  }
+
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",

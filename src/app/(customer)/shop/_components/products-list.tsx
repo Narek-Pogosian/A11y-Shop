@@ -23,7 +23,7 @@ export async function ProductsList({ searchParams }: ProductsListProps) {
   return (
     <>
       <ul
-        className="grid grow gap-4 xs:grid-cols-2 md:grid-cols-3 lg:gap-10 xl:grid-cols-4"
+        className="grid grow gap-8 xs:grid-cols-2 md:grid-cols-3 lg:gap-10 xl:grid-cols-4"
         id="product-list"
         tabIndex={-1}
       >
@@ -49,7 +49,7 @@ export function ProductsListSkeleton() {
   const products = new Array(PAGE_SIZE).fill(null);
 
   return (
-    <ul className="grid grow gap-4 xs:grid-cols-2 md:grid-cols-3 lg:gap-10 xl:grid-cols-4">
+    <ul className="grid grow gap-8 xs:grid-cols-2 md:grid-cols-3 lg:gap-10 xl:grid-cols-4">
       {products.map((_, index) => (
         <li key={index}>
           <ProductCardSkeleton />

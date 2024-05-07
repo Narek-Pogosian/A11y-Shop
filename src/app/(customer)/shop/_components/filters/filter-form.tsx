@@ -17,6 +17,7 @@ import { categories } from "@/config/categories";
 import { Button } from "@/components/ui/button";
 import { setSearchQueries } from "@/lib/utils/search-params";
 import { useRouter, useSearchParams } from "next/navigation";
+import { currency } from "@/lib/utils";
 
 interface FilterFormProps {
   closeDialog: () => void;
@@ -88,7 +89,10 @@ function FilterForm({ closeDialog }: FilterFormProps) {
           name="maxPrice"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Maximum Price</FormLabel>
+              <FormLabel>
+                Maximum Price{" "}
+                <span aria-hidden>({currency(field.value!)})</span>
+              </FormLabel>
               <FormControl>
                 <input
                   type="range"
@@ -108,7 +112,10 @@ function FilterForm({ closeDialog }: FilterFormProps) {
           name="minPrice"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Minimum Price</FormLabel>
+              <FormLabel>
+                Minimum Price{" "}
+                <span aria-hidden>({currency(field.value!)})</span>
+              </FormLabel>
               <FormControl>
                 <input
                   type="range"
