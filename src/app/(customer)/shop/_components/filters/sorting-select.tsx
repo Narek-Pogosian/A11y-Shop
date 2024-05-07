@@ -31,7 +31,6 @@ function SortingSelect() {
 
   function handleValueChange(value: string) {
     setValue(value);
-    // TODO: Add error handling and validation
     // eslint-disable-next-line
     router.push(setSortQuery(value ? JSON.parse(value) : ""));
   }

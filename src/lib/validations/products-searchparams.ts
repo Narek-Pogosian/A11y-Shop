@@ -5,11 +5,15 @@ export const producSeachFormSchema = z.object({
   category: z.enum([...categoryEnum.enumValues, ""]).optional(),
   minPrice: z
     .string()
-    .regex(/^([0-9]|[1-9][0-9]{1,2}|100)$/, { message: "Hello" })
+    .regex(/^([0-9]|[1-9][0-9]{1,2}|100)$/, {
+      message: "Needs to be between 0 to 100",
+    })
     .optional(),
   maxPrice: z
     .string()
-    .regex(/^([0-9]|[1-9][0-9]{1,2}|100)$/, { message: "Hello" })
+    .regex(/^([0-9]|[1-9][0-9]{1,2}|100)$/, {
+      message: "Needs to be between 0 to 100",
+    })
     .optional(),
 });
 

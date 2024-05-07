@@ -16,9 +16,12 @@ function ProductCardAddToCart({ product }: ProductCardAddProps) {
   const { addToCart } = useCart();
 
   function handleAddToCart() {
+    if (!hasAdded) {
+      addToCart({ product, quantity: 1, productId: product.id });
+      announce(`Added one ${product.name} to cart`, "assertive");
+    }
+
     setHasAdded(true);
-    addToCart({ product, quantity: 1, productId: product.id });
-    announce(`Added one ${product.name} to cart`, "assertive");
     setTimeout(() => {
       setHasAdded(false);
     }, 800);
@@ -27,14 +30,14 @@ function ProductCardAddToCart({ product }: ProductCardAddProps) {
   return (
     <Button
       size="icon"
-      className="relative size-8 disabled:opacity-100"
+      className="relative size-9"
       onClick={handleAddToCart}
-      disabled={hasAdded}
+      aria-disabled={hasAdded}
     >
       {!hasAdded ? (
-        <ShoppingBag className="size-5" aria-hidden />
+        <ShoppingBag className="size-6" aria-hidden />
       ) : (
-        <Check className="size-5" aria-hidden />
+        <Check className="size-6" aria-hidden />
       )}
       <span className="sr-only">Add to cart.</span>
     </Button>
