@@ -44,13 +44,13 @@ const CheckoutForm = () => {
       <div className="@container" id="checkout-form" tabIndex={-1}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="@lg:gap-6 grid grid-cols-6 gap-x-4 gap-y-6"
+          className="grid grid-cols-6 gap-x-4 gap-y-6 @lg:gap-6"
         >
           <FormField
             control={form.control}
             name="firstName"
             render={({ field }) => (
-              <FormItem className="@lg:col-span-3 col-span-6">
+              <FormItem className="col-span-6 @lg:col-span-3">
                 <FormLabel>First name</FormLabel>
                 <FormControl>
                   <Input
@@ -67,7 +67,7 @@ const CheckoutForm = () => {
             control={form.control}
             name="lastName"
             render={({ field }) => (
-              <FormItem className="@lg:col-span-3 col-span-6">
+              <FormItem className="col-span-6 @lg:col-span-3">
                 <FormLabel>Last name</FormLabel>
                 <FormControl>
                   <Input
@@ -84,10 +84,10 @@ const CheckoutForm = () => {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem className="@lg:col-span-3 col-span-6">
+              <FormItem className="col-span-6 @lg:col-span-3">
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="Email" {...field} />
+                  <Input placeholder="Email" {...field} autoComplete="email" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -97,7 +97,7 @@ const CheckoutForm = () => {
             control={form.control}
             name="address"
             render={({ field }) => (
-              <FormItem className="@lg:col-span-3 col-span-6">
+              <FormItem className="col-span-6 @lg:col-span-3">
                 <FormLabel>Address</FormLabel>
                 <FormControl>
                   <Input
@@ -114,7 +114,7 @@ const CheckoutForm = () => {
             control={form.control}
             name="city"
             render={({ field }) => (
-              <FormItem className="@lg:col-span-3 col-span-6">
+              <FormItem className="col-span-6 @lg:col-span-3">
                 <FormLabel>City</FormLabel>
                 <FormControl>
                   <Input placeholder="e.g. Stockholm" {...field} />
@@ -127,7 +127,7 @@ const CheckoutForm = () => {
             control={form.control}
             name="zip"
             render={({ field }) => (
-              <FormItem className="@lg:col-span-3 col-span-6">
+              <FormItem className="col-span-6 @lg:col-span-3">
                 <FormLabel>ZIP code</FormLabel>
                 <FormControl>
                   <Input
@@ -145,7 +145,7 @@ const CheckoutForm = () => {
             control={form.control}
             name="cardNumber"
             render={({ field }) => (
-              <FormItem className="@lg:col-span-3 col-span-6">
+              <FormItem className="col-span-6 @lg:col-span-3">
                 <FormLabel>Card number</FormLabel>
                 <FormControl>
                   <Input
@@ -163,7 +163,7 @@ const CheckoutForm = () => {
             control={form.control}
             name="expirationMonth"
             render={({ field }) => (
-              <FormItem className="@lg:col-span-1 col-span-2">
+              <FormItem className="col-span-2 @lg:col-span-1">
                 <FormLabel>Exp month</FormLabel>
                 <FormControl>
                   <Input
@@ -181,7 +181,7 @@ const CheckoutForm = () => {
             control={form.control}
             name="expirationYear"
             render={({ field }) => (
-              <FormItem className="@lg:col-span-1 col-span-2">
+              <FormItem className="col-span-2 @lg:col-span-1">
                 <FormLabel>Exp year</FormLabel>
                 <FormControl>
                   <Input
@@ -199,7 +199,7 @@ const CheckoutForm = () => {
             control={form.control}
             name="cvc"
             render={({ field }) => (
-              <FormItem className="@lg:col-span-1 col-span-2">
+              <FormItem className="col-span-2 @lg:col-span-1">
                 <FormLabel>CVC code</FormLabel>
                 <FormControl>
                   <Input
@@ -214,11 +214,11 @@ const CheckoutForm = () => {
             )}
           />
           <div className="col-span-6 flex justify-end gap-4">
+            <Button type="submit" className="order-last px-10 font-semibold">
+              Order
+            </Button>
             <Button asChild variant="destructive">
               <Link href="/shop">Cancel</Link>
-            </Button>
-            <Button type="submit" className="px-10 font-semibold">
-              Order
             </Button>
           </div>
         </form>

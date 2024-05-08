@@ -81,6 +81,9 @@
   .product-card:focus-within {
     @apply ring-2 ring-ring ring-offset-4 ring-offset-background;
   }
+  .product-card:has(a:focus) {
+    @apply ring-0 ring-offset-0;
+  }
   .product-card:has(a:focus-visible) {
     @apply ring-2 ring-ring ring-offset-4 ring-offset-background;
   }
