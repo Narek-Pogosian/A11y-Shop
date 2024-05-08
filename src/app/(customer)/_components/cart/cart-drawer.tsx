@@ -75,10 +75,12 @@ function CartDrawer() {
             </ScrollArea>
             <>
               <CartInfo />
-              <Button variant="secondary" asChild>
-                <Link href="/checkout" className="w-full text-xl">
-                  Proceed to checkout
-                </Link>
+              <Button
+                variant="secondary"
+                asChild
+                className="w-full rounded-full text-lg"
+              >
+                <Link href="/checkout">Proceed to checkout</Link>
               </Button>
             </>
           </>
