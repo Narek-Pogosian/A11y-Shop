@@ -19,12 +19,12 @@ function ProductCardAddToCart({ product }: ProductCardAddProps) {
     if (!hasAdded) {
       addToCart({ product, quantity: 1, productId: product.id });
       announce(`Added one ${product.name} to cart`, "assertive");
-    }
 
-    setHasAdded(true);
-    setTimeout(() => {
-      setHasAdded(false);
-    }, 800);
+      setHasAdded(true);
+      setTimeout(() => {
+        setHasAdded(false);
+      }, 800);
+    }
   }
 
   return (
