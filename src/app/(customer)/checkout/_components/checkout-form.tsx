@@ -214,10 +214,14 @@ const CheckoutForm = () => {
             )}
           />
           <div className="col-span-6 flex justify-end gap-4">
-            <Button type="submit" className="order-last px-10 font-semibold">
+            <Button
+              type="submit"
+              variant="secondary"
+              className="order-last px-10 font-semibold"
+            >
               Order
             </Button>
-            <Button asChild variant="destructive">
+            <Button asChild variant="outline">
               <Link href="/shop">Cancel</Link>
             </Button>
           </div>

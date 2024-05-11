@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function currency(price: number | string) {
+export function formatCurrency(price: number | string) {
   if (typeof price === "string") {
     price = parseFloat(price);
     if (isNaN(price)) return "0.00";
@@ -23,5 +23,5 @@ export function getTotalCartPrice(cartItems: CartItemType[]) {
     return total + parseFloat(item.product.price) * item.quantity;
   }, 0);
 
-  return currency(total);
+  return formatCurrency(total);
 }

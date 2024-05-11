@@ -1,7 +1,7 @@
 "use client";
 
 import { useCart } from "@/hooks/use-cart";
-import { currency, getTotalCartPrice } from "@/lib/utils";
+import { formatCurrency, getTotalCartPrice } from "@/lib/utils";
 
 function CartInfo() {
   const { cartItems } = useCart();
@@ -10,7 +10,7 @@ function CartInfo() {
     <div className="mt-4 space-y-2 border-t py-6">
       <p className="flex items-center justify-between">
         <span className="text-lg font-bold">Shipment:</span>
-        <span className="text-lg font-medium">{currency(0)}</span>
+        <span className="text-lg font-medium">{formatCurrency(0)}</span>
       </p>
       <div className="flex items-center justify-between">
         <span className="text-lg font-bold">Total:</span>

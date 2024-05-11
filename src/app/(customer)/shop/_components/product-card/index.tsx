@@ -1,6 +1,6 @@
 import { type Product } from "@/server/db/schema";
 import { Skeleton } from "@/components/ui/skeleton";
-import { currency } from "@/lib/utils";
+import { formatCurrency } from "@/lib/utils";
 import ProductCardAddToCart from "./product-card-add-to-cart";
 import Link from "next/link";
 
@@ -36,7 +36,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </Link>
           </h2>
           <span className="text-sm text-muted-foreground">
-            {currency(parseFloat(product.price))}
+            {formatCurrency(parseFloat(product.price))}
           </span>
         </div>
         <ProductCardAddToCart product={product} />

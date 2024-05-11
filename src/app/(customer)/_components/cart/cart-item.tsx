@@ -3,7 +3,7 @@
 import { type CartItemType } from "@/context/cart-context/cart.types";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/hooks/use-cart";
-import { currency } from "@/lib/utils";
+import { formatCurrency } from "@/lib/utils";
 import { X } from "lucide-react";
 import { announce } from "@react-aria/live-announcer";
 import { forwardRef } from "react";
@@ -70,12 +70,12 @@ const CartItem = forwardRef<HTMLAnchorElement, CartItemProps>(
             <div className="font-semibold text-muted-foreground">
               <p className="sr-only">
                 Price is{" "}
-                {currency(
+                {formatCurrency(
                   parseFloat(cartItem.product.price) * cartItem.quantity,
                 )}
               </p>
               <p aria-hidden>
-                {currency(
+                {formatCurrency(
                   parseFloat(cartItem.product.price) * cartItem.quantity,
                 )}
               </p>

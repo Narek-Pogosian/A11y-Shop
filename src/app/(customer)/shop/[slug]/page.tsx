@@ -1,6 +1,6 @@
 import { getProductBySlug } from "@/server/data-access/queries";
 import { notFound } from "next/navigation";
-import { currency } from "@/lib/utils";
+import { formatCurrency } from "@/lib/utils";
 import PageTitle from "@/components/page-title";
 import ProductCounter from "../_components/product-counter";
 
@@ -20,10 +20,10 @@ async function ProductPage({ params }: PageProps<"slug">) {
       <div className="grid gap-8 md:grid-cols-2">
         <div>
           <p className="sr-only">
-            Price is {currency(parseFloat(product.price))}
+            Price is {formatCurrency(parseFloat(product.price))}
           </p>
           <p aria-hidden className="mb-2 text-xl font-bold">
-            {currency(parseFloat(product.price))}
+            {formatCurrency(parseFloat(product.price))}
           </p>
           <p className="mb-8 max-w-lg text-lg text-muted-foreground">
             {product.description}
