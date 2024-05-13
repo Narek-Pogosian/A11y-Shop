@@ -28,10 +28,10 @@ function Counter({ count, decrement, increment }: CounterProps) {
   }
 
   return (
-    <section className="flex gap-2">
-      <h3 id="amount" className="sr-only">
-        Edit amount, currently set to {count}
-      </h3>
+    <section
+      className="flex gap-2"
+      aria-label={`Choose amount to add to cart, currently set to ${count}`}
+    >
       <Button
         onClick={handleDecrement}
         variant="outline"

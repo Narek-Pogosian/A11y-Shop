@@ -20,8 +20,9 @@ function objectToParamsString(params: ProductsSearchParams) {
 function ShopPage({ searchParams }: PageProps) {
   const { error } = productsSearchParamsSchema.safeParse(searchParams);
 
-  const keysWithErrors = Object.keys(error?.flatten().fieldErrors ?? {});
-  if (keysWithErrors.length > 0) {
+  if (error) {
+    const keysWithErrors = Object.keys(error?.flatten().fieldErrors ?? {});
+
     keysWithErrors.forEach((key) => {
       delete searchParams[key];
     });
