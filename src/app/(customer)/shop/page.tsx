@@ -12,6 +12,7 @@ import {
 import { redirect } from "next/navigation";
 
 function objectToParamsString(params: ProductsSearchParams) {
+  // ! Should URI encode
   return Object.entries(params)
     .map(([key, value]) => `${key}=${value}`)
     .join("&");
