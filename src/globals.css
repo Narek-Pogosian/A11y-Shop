@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 240 20% 97%;
+    --background: 240 20% 97.5%;
     --foreground: 240 10% 3.9%;
 
     --element: 0 0% 100%;
@@ -23,7 +23,7 @@
     --destructive: 0 54.2% 47.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5.9% 88.5%;
+    --border: 240 5.9% 91.5%;
     --input: 240 5.9% 93.5%;
 
     --ring: 240 5.9% 10%;
@@ -38,7 +38,7 @@
     --background: 0 0% 8%;
     --foreground: 0 0% 98%;
 
-    --element: 0 0% 10%;
+    --element: 0 0% 9%;
     --element-foreground: 0 0% 98%;
 
     --primary: 0 0% 98%;
@@ -54,8 +54,8 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 14.9%;
-    --input: 0 0% 16.9%;
+    --border: 0 0% 12.9%;
+    --input: 0 0% 13.9%;
 
     --ring: 0 0% 83.9%;
     --scrollbar: 0 0% 18%;

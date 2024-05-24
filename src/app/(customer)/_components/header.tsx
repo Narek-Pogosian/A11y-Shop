@@ -6,14 +6,14 @@ import { Button } from "@/components/ui/button";
 export function Logo() {
   return (
     <Link href="/" className="font-extrabold uppercase sm:text-lg">
-      A11y <span className="text-secondary -ml-1">Shop</span>
+      A11y <span className="-ml-1 text-secondary">Shop</span>
     </Link>
   );
 }
 
 function Header() {
   return (
-    <header className="sticky inset-0 z-10 border-b bg-background/75 py-2 backdrop-blur-md">
+    <header className="sticky inset-0 z-10 bg-background/75 py-2 backdrop-blur-md">
       <div className="container flex items-center justify-between">
         <div className="flex items-center gap-3 md:gap-10">
           <Logo />
