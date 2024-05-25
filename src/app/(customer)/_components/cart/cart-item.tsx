@@ -4,7 +4,7 @@ import { type CartItemType } from "@/context/cart-context/cart.types";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/hooks/use-cart";
 import { formatCurrency } from "@/lib/utils";
-import { X } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import { announce } from "@react-aria/live-announcer";
 import { forwardRef } from "react";
 import Counter from "@/components/counter";
@@ -53,10 +53,10 @@ const CartItem = forwardRef<HTMLAnchorElement, CartItemProps>(
             <Button
               variant="ghost"
               size="icon"
-              className="size-7 text-muted-foreground hover:text-destructive"
+              className="size-7 text-muted-foreground hover:text-foreground"
               onClick={() => handleRemoveProductFromCart(cartItem.productId)}
             >
-              <X className="size-5" aria-hidden />
+              <Trash2 className="size-5" aria-hidden />
               <span className="sr-only">Remove</span>
             </Button>
           </div>

@@ -9,14 +9,12 @@ function CartInfo() {
   return (
     <div className="mt-4 space-y-2 border-t pb-4 pt-6">
       <p className="flex items-center">
-        <span className="w-28 text-lg font-bold">Shipment:</span>
-        <span className="text-lg font-medium">{formatCurrency(0)}</span>
+        <span className="w-28 font-bold">Shipment:</span>
+        <span className="font-medium">{formatCurrency(0)}</span>
       </p>
       <div className="flex items-center">
-        <span className="w-28 text-lg font-bold">Total:</span>
-        <span className="text-lg font-medium">
-          {getTotalCartPrice(cartItems)}
-        </span>
+        <span className="w-28 font-bold">Total:</span>
+        <span className="font-medium">{getTotalCartPrice(cartItems)}</span>
       </div>
     </div>
   );

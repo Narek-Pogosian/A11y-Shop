@@ -27,7 +27,7 @@ function CartDrawer() {
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    setIsOpen(() => false);
+    setIsOpen(false);
   }, [pathname]);
 
   function handleOpenFocus(e: Event) {
@@ -78,7 +78,7 @@ function CartDrawer() {
               <Button
                 variant="secondary"
                 asChild
-                className="w-full rounded-full text-lg"
+                className="w-full uppercase tracking-wider"
               >
                 <Link href="/checkout">Proceed to checkout</Link>
               </Button>
