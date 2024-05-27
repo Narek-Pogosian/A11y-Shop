@@ -25,22 +25,28 @@ const CartItem = forwardRef<HTMLAnchorElement, CartItemProps>(
 
     return (
       <li key={cartItem.productId} className="flex gap-4">
-        {cartItem.product.image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={cartItem.product.image ?? ""}
-            width={130}
-            height={90}
-            alt={cartItem.product.altText ?? ""}
-            className="rounded"
-            aria-hidden
-          />
-        ) : (
-          <div
-            className="h-[80px] w-[120px] rounded bg-accent"
-            aria-hidden
-          ></div>
-        )}
+        <Link
+          href={`/shop/${cartItem.product.slug}`}
+          tabIndex={-1}
+          aria-hidden
+          className="aspect-[7/3] h-[80px] overflow-hidden rounded"
+        >
+          {cartItem.product.image ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={cartItem.product.image ?? ""}
+              width={120}
+              height={80}
+              alt={cartItem.product.altText ?? ""}
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <div
+              className="h-[80px] w-[120px] rounded bg-accent"
+              aria-hidden
+            ></div>
+          )}
+        </Link>
         <div className="flex w-full flex-col pr-1 pt-1">
           <div className="flex w-full justify-between">
             <Link
@@ -67,7 +73,7 @@ const CartItem = forwardRef<HTMLAnchorElement, CartItemProps>(
               decrement={() => decrementCartItem(cartItem.productId)}
               increment={() => incrementCartItem(cartItem.productId)}
             />
-            <div className="font-semibold text-muted-foreground">
+            <div className="text-sm font-medium">
               <p className="sr-only">
                 Price is{" "}
                 {formatCurrency(

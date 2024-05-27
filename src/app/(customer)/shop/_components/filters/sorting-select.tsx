@@ -38,7 +38,7 @@ function SortingSelect() {
   return (
     <Select value={value} onValueChange={handleValueChange}>
       <SelectTrigger
-        className="w-fit min-w-[261px] rounded-full border-neutral-400 px-4 font-semibold dark:border-neutral-600"
+        className="w-fit min-w-[261px] rounded-full px-4 font-semibold "
         aria-label="Choose sorting option"
       >
         <span className="mr-2">Sort by:</span>{" "}

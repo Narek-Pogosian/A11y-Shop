@@ -10,7 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary shadow-bezel text-primary-foreground hover:bg-primary/90 focus-visible:ring-offset-2",
+          "bg-primary shadow-bezel dark:shadow-secondary text-primary-foreground hover:bg-primary/90 focus-visible:ring-offset-2",
         secondary:
           "bg-gradient-to-b hover:from-brand-600 hover:to-brand-600 shadow-bezel text-brand-foreground from-brand-500 to-brand-600 focus-visible:ring-offset-2 focus-visible:ring-brand",
         danger:

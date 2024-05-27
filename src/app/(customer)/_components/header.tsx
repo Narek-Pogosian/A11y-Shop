@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button";
 export function Logo() {
   return (
     <Link href="/" className="font-extrabold uppercase sm:text-lg">
-      A11y <span className="-ml-1 text-secondary">Shop</span>
+      A11y{" "}
+      <span className="text-brand-500 dark:text-brand-400 -ml-1">Shop</span>
     </Link>
   );
 }
