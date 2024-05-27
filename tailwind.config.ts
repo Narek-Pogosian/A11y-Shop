@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
+import colors from "tailwindcss/colors";
 
 const config = {
   darkMode: ["class"],
@@ -18,12 +19,26 @@ const config = {
         "2xl": "1400px",
       },
     },
+    colors: {
+      danger: colors.red,
+      warning: colors.amber,
+      info: colors.blue,
+      neutral: colors.neutral,
+      white: colors.white,
+      black: colors.black,
+      transparent: colors.transparent,
+      current: colors.current,
+    },
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
       screens: {
         xs: "475px",
+      },
+      boxShadow: {
+        bezel:
+          "inset 0 2px 0 0 hsla(0,0%,100%,.2),inset 0 -1px 0 0 rgba(0,0,0,.25),0 2px 6px 0 rgba(0,0,0,.1)",
       },
       colors: {
         border: "hsl(var(--border))",
@@ -36,14 +51,17 @@ const config = {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          hover: "hsl(var(--secondary-hover))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+        brand: {
+          50: "hsl(var(--brand-50))",
+          100: "hsl(var(--brand-100))",
+          200: "hsl(var(--brand-200))",
+          300: "hsl(var(--brand-300))",
+          400: "hsl(var(--brand-400))",
+          500: "hsl(var(--brand-500))",
+          600: "hsl(var(--brand-600))",
+          700: "hsl(var(--brand-700))",
+          800: "hsl(var(--brand-800))",
+          foreground: "hsl(var(--brand-foreground))",
         },
         muted: {
           foreground: "hsl(var(--muted-foreground))",

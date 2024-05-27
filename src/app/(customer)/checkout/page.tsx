@@ -9,7 +9,7 @@ function CheckoutPage() {
       <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-3">
         <section
           aria-labelledby="cart-list"
-          className="h-fit rounded border bg-element p-2 py-4 xs:px-6 xl:sticky xl:top-4"
+          className="h-fit rounded bg-element p-4 shadow dark:border xl:sticky xl:top-4 xl:p-8"
         >
           <h2 className="mb-4 text-xl font-bold" id="cart-list">
             Cart Info
@@ -17,7 +17,7 @@ function CheckoutPage() {
           <CartWrapper />
         </section>
         <section
-          className="h-fit rounded border bg-element p-2 py-4 xs:px-6 lg:order-first xl:col-span-2"
+          className="h-fit rounded bg-element p-4 shadow dark:border lg:order-first xl:col-span-2 xl:p-8"
           aria-labelledby="checkout-form-section"
         >
           <h2 className="mb-4 text-xl font-bold" id="checkout-form-section">

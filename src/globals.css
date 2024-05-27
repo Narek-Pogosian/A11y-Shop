@@ -4,6 +4,17 @@
 
 @layer base {
   :root {
+    --brand-50: 153, 43%, 96%;
+    --brand-100: 145, 37%, 90%;
+    --brand-200: 148, 36%, 80%;
+    --brand-300: 154, 35%, 67%;
+    --brand-400: 155, 31%, 52%;
+    --brand-500: 157, 41%, 35%;
+    --brand-600: 158, 46%, 30%;
+    --brand-700: 160, 45%, 24%;
+    --brand-800: 160, 43%, 20%;
+    --brand-foreground: 0 0% 100%;
+
     --background: 240 20% 97.5%;
     --foreground: 240 10% 3.9%;
 
@@ -13,15 +24,8 @@
     --primary: 240 12.9% 14%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 175, 77%, 26%;
-    --secondary-hover: 175, 77%, 23%;
-    --secondary-foreground: 0 0% 98%;
-
     --accent: 240, 30%, 30%, 0.05;
     --muted-foreground: 240 3.8% 36.1%;
-
-    --destructive: 0 54.2% 47.2%;
-    --destructive-foreground: 0 0% 98%;
 
     --border: 240 5.9% 91.5%;
     --input: 240 5.9% 93.5%;
@@ -44,15 +48,8 @@
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 10%;
 
-    --secondary: 175, 84%, 32%;
-    --secondary-hover: 175, 77%, 28%;
-    --secondary-foreground: 0 0% 98%;
-
     --accent: 0, 0%, 80%, 0.07;
     --muted-foreground: 0 0% 64.9%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 12.9%;
     --input: 0 0% 13.9%;
