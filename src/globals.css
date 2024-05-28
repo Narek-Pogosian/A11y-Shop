@@ -17,7 +17,7 @@
     --brand-950: 162, 43%, 9%;
     --brand-foreground: 0 0% 100%;
 
-    --background: 240 20% 97.5%;
+    --background: 240 30% 97.5%;
     --foreground: 240 10% 3.9%;
 
     --element: 0 0% 100%;
@@ -26,7 +26,7 @@
     --primary: 240 12.9% 14%;
     --primary-foreground: 0 0% 98%;
 
-    --accent: 240, 30%, 30%, 0.05;
+    --accent: 240, 10%, 25%, 0.04;
     --muted-foreground: 240 3.8% 36.1%;
 
     --border: 240 5.9% 91.5%;
@@ -41,10 +41,10 @@
   .dark {
     color-scheme: dark;
 
-    --background: 200 10% 9%;
+    --background: 200 10% 10%;
     --foreground: 0 0% 98%;
 
-    --element: 200 10% 12%;
+    --element: 200 10% 14%;
     --element-foreground: 0 0% 98%;
 
     --primary: 0 0% 98%;

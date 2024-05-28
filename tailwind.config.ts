@@ -39,8 +39,6 @@ const config = {
       boxShadow: {
         bezel:
           "inset 0 2px 0 0 hsla(0,0%,100%,.2),inset 0 -1px 0 0 rgba(0,0,0,.25),0 2px 6px 0 rgba(0,0,0,.1),0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);",
-        secondary:
-          "0 5px 5px -2px rgb(91 33 182 / .1), 0 2px 4px -2px rgb(91 33 182 / .1)",
       },
       colors: {
         border: "hsl(var(--border))",
