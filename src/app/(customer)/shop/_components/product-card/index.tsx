@@ -11,7 +11,7 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   return (
     <article className="product-card relative rounded">
-      <div className="aspect-[3/2] overflow-hidden rounded shadow">
+      <div className="aspect-[3/2] overflow-hidden rounded">
         {product.image ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img

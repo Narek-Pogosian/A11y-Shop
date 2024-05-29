@@ -4,8 +4,8 @@ import FiltersDialog from "./filters-dialog";
 function Filters() {
   return (
     <section
-      className="mb-4 flex flex-col gap-4 xs:flex-row"
-      aria-label="filers"
+      className="mb-8 flex flex-col gap-4 xs:flex-row"
+      aria-label="Filters"
     >
       <div>
         <FiltersDialog />

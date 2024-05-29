@@ -2,19 +2,20 @@ import ThemeToggle from "@/components/theme-toggle";
 import CartDrawer from "./cart/cart-drawer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export function Logo() {
   return (
     <Link href="/" className="font-extrabold uppercase sm:text-lg">
       A11y{" "}
-      <span className="text-brand-500 dark:text-brand-400 -ml-1">Shop</span>
+      <span className="-ml-1 text-brand-500 dark:text-brand-400">Shop</span>
     </Link>
   );
 }
 
 function Header() {
   return (
-    <header className="sticky inset-0 z-10 bg-background/75 py-2 backdrop-blur-md">
+    <header className="sticky inset-0 z-10 bg-background/75 py-4 backdrop-blur-md">
       <div className="container flex items-center justify-between">
         <div className="flex items-center gap-3 md:gap-10">
           <Logo />
@@ -33,7 +34,11 @@ function Header() {
             </ul>
           </nav>
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-4">
+          <Input
+            placeholder="Search"
+            className="w-64 border border-input bg-element/40"
+          />
           <CartDrawer />
           <ThemeToggle />
         </div>
