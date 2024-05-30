@@ -12,7 +12,7 @@ const buttonVariants = cva(
         default:
           "bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-offset-2",
         secondary:
-          "bg-gradient-to-b hover:from-brand-600 hover:to-brand-600 text-brand-foreground from-brand-500 to-brand-600 focus-visible:ring-offset-2 focus-visible:ring-brand",
+          "bg-gradient-to-br hover:from-brand-700 hover:to-brand-500 text-brand-foreground from-brand-600 to-brand-400 focus-visible:ring-offset-2 focus-visible:ring-ring",
         danger:
           "bg-danger-600 text-white hover:bg-danger-700 focus-visible:ring-offset-2 focus-visible:ring-danger-600",
         outline: "border-2 border-input bg-transparent hover:bg-accent",

@@ -4,7 +4,7 @@ interface PageTitleProps {
 
 function PageTitle({ children }: PageTitleProps) {
   return (
-    <h1 className="text-brand-500 dark:text-brand-400 mb-6 text-2xl font-extrabold">
+    <h1 className="pb-6 pt-4 text-2xl font-extrabold text-brand-500 dark:text-brand-400">
       {children}
     </h1>
   );
