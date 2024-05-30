@@ -2,7 +2,7 @@ import { Logo } from "./header";
 
 function Footer() {
   return (
-    <footer className="py-8">
+    <footer className="py-12">
       <div className="container flex justify-between">
         <div className="flex items-center gap-8">
           <Logo />

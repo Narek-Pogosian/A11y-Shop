@@ -14,7 +14,7 @@ async function ProductPage({ params }: PageProps<"slug">) {
   if (!product) notFound();
 
   return (
-    <>
+    <div className="container">
       <PageTitle>{product.name}</PageTitle>
 
       <div className="grid gap-8 md:grid-cols-2">
@@ -39,7 +39,7 @@ async function ProductPage({ params }: PageProps<"slug">) {
           />
         )}
       </div>
-    </>
+    </div>
   );
 }
 

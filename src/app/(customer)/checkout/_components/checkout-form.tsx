@@ -221,7 +221,7 @@ const CheckoutForm = () => {
             >
               Order
             </Button>
-            <Button asChild variant="outline">
+            <Button asChild variant="ghost">
               <Link href="/shop">Cancel</Link>
             </Button>
           </div>

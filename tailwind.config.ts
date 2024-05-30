@@ -23,7 +23,7 @@ const config = {
       danger: colors.red,
       warning: colors.amber,
       info: colors.blue,
-      neutral: colors.neutral,
+      neutral: colors.zinc,
       white: colors.white,
       black: colors.black,
       transparent: colors.transparent,
@@ -47,10 +47,6 @@ const config = {
         scrollbar: "hsl(var(--scrollbar))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
         brand: {
           50: "hsl(var(--brand-50))",
           100: "hsl(var(--brand-100))",
@@ -65,15 +61,24 @@ const config = {
           950: "hsl(var(--brand-950))",
           foreground: "hsl(var(--brand-foreground))",
         },
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
         muted: {
+          DEFAULT: "hsla(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
           DEFAULT: "hsla(var(--accent))",
         },
-        element: {
-          DEFAULT: "hsl(var(--element))",
-          foreground: "hsl(var(--element-foreground))",
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
         },
       },
       borderRadius: {

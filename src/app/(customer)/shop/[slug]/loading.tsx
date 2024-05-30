@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 function loading() {
   return (
-    <>
+    <div className="container">
       <Skeleton className="mb-6 h-8 w-40" />
 
       <div className="grid gap-8 md:grid-cols-2">
@@ -20,7 +20,7 @@ function loading() {
 
         <Skeleton className="aspect-[3/2] " />
       </div>
-    </>
+    </div>
   );
 }
 

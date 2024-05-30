@@ -2,7 +2,6 @@ import ThemeToggle from "@/components/theme-toggle";
 import CartDrawer from "./cart/cart-drawer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 export function Logo() {
   return (
@@ -35,10 +34,6 @@ function Header() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <Input
-            placeholder="Search"
-            className="w-64 border border-input bg-element/40"
-          />
           <CartDrawer />
           <ThemeToggle />
         </div>

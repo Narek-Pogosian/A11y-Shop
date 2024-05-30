@@ -32,7 +32,7 @@ function ShopPage({ searchParams }: PageProps) {
   }
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="container flex h-full flex-col">
       <PageTitle>Shop</PageTitle>
       <Filters />
       <Suspense
