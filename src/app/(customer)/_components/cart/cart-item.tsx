@@ -51,7 +51,7 @@ const CartItem = forwardRef<HTMLAnchorElement, CartItemProps>(
           <div className="flex w-full justify-between">
             <Link
               href={`/shop/${cartItem.product.slug}`}
-              className="font-semibold"
+              className="text-sm font-semibold"
               ref={ref}
             >
               {cartItem.product.name}
@@ -59,7 +59,7 @@ const CartItem = forwardRef<HTMLAnchorElement, CartItemProps>(
             <Button
               variant="ghost"
               size="icon"
-              className="size-8 text-muted-foreground hover:text-foreground"
+              className="size-5 text-muted-foreground hover:text-foreground"
               onClick={() => handleRemoveProductFromCart(cartItem.productId)}
             >
               <Trash2 className="size-5" aria-hidden />

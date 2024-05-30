@@ -23,7 +23,7 @@ function ProductCardAddToCart({ product }: ProductCardAddProps) {
       setHasAdded(true);
       setTimeout(() => {
         setHasAdded(false);
-      }, 800);
+      }, 600);
     }
   }
 
