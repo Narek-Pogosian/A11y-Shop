@@ -1,4 +1,4 @@
-import { categoryEnum } from "@/server/db/schema";
+import { categoryEnum } from "@/server/schema";
 import { z } from "zod";
 
 export const producSeachFormSchema = z.object({

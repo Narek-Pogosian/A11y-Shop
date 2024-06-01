@@ -9,9 +9,6 @@ import {
   varchar,
 } from "drizzle-orm/pg-core";
 
-/**
- * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
- */
 export const createTable = pgTableCreator((name) => `accessible-shop_${name}`);
 
 export const categoryEnum = pgEnum("category", [

@@ -45,7 +45,7 @@ function CartDrawer() {
           <span className="sr-only">View your shopping cart.</span>
           {isMounted && cartItems.length > 0 && (
             <span
-              className="absolute right-0 top-0 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-brand-500 text-xs text-brand-foreground"
+              className="absolute -top-1 right-0 inline-flex h-[22px] min-w-[22px] items-center justify-center rounded-full bg-brand-500 text-xs text-brand-foreground shadow-bezel"
               aria-hidden
             >
               {cartItems.length}
