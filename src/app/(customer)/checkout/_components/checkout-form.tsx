@@ -11,7 +11,7 @@ import {
 import {
   type CheckoutSchemaType,
   checkoutSchema,
-} from "@/lib/validations/checkout-form-validation";
+} from "@/lib/validations/checkout-form-schema";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
