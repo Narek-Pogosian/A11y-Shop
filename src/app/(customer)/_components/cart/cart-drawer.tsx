@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/sheet";
 import { useCart } from "@/hooks/use-cart";
 import { useIsMounted } from "@/hooks/use-is-mounted";
-import { ShoppingBag } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { usePathname } from "next/navigation";
@@ -41,7 +41,7 @@ function CartDrawer() {
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <Button size="icon" variant="ghost" className="relative">
-          <ShoppingBag className="size-6" aria-hidden />
+          <ShoppingCart className="size-6" aria-hidden />
           <span className="sr-only">View your shopping cart.</span>
           {isMounted && cartItems.length > 0 && (
             <span

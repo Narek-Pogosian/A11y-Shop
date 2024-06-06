@@ -1,11 +1,11 @@
 "use client";
 
-import { type Product } from "@/server/db/schema";
-import { Check, ShoppingBag } from "lucide-react";
+import { Check, ShoppingCart } from "lucide-react";
 import { useCart } from "@/hooks/use-cart";
 import { Button } from "@/components/ui/button";
 import { announce } from "@react-aria/live-announcer";
 import { useState } from "react";
+import { type Product } from "@/server/schema/products";
 
 interface ProductCardAddProps {
   product: Product;
@@ -35,9 +35,9 @@ function ProductCardAddToCart({ product }: ProductCardAddProps) {
       aria-disabled={hasAdded}
     >
       {!hasAdded ? (
-        <ShoppingBag className="size-6" aria-hidden />
+        <ShoppingCart className="size-5" aria-hidden strokeWidth={3} />
       ) : (
-        <Check className="size-6" aria-hidden />
+        <Check className="size-5" aria-hidden strokeWidth={3} />
       )}
       <span className="sr-only">Add to cart.</span>
     </Button>

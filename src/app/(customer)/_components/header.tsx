@@ -1,5 +1,5 @@
-import ThemeToggle from "@/components/theme-toggle";
 import CartDrawer from "./cart/cart-drawer";
+import UserDropdown from "./user-dropdown";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -33,9 +33,9 @@ function Header() {
             </ul>
           </nav>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-1">
+          <UserDropdown />
           <CartDrawer />
-          <ThemeToggle />
         </div>
       </div>
     </header>
