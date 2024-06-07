@@ -8,6 +8,8 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  console.error(error);
+
   return (
     <div className="pt-20 text-center">
       <h2 className="mb-8 text-4xl font-bold">Something went wrong</h2>

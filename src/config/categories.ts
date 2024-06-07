@@ -1,4 +1,4 @@
-import { type categoryEnum } from "@/server/db/schema";
+import { type categoryEnum } from "@/server/schema";
 
 type CategoryInfo = {
   label: string;

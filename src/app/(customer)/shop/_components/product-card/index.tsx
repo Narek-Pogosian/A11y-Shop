@@ -1,4 +1,4 @@
-import { type Product } from "@/server/db/schema";
+import { type Product } from "@/server/schema/products";
 import { Skeleton } from "@/components/ui/skeleton";
 import { formatCurrency } from "@/lib/utils";
 import ProductCardAddToCart from "./product-card-add-to-cart";

@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Laptop, Moon, Sun, User } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
 function UserDropdown() {
@@ -40,9 +40,14 @@ function UserDropdown() {
             </DropdownMenuItem>
           </>
         ) : (
-          <DropdownMenuItem asChild>
-            <Link href="/register">Profile</Link>
-          </DropdownMenuItem>
+          <>
+            <DropdownMenuItem asChild>
+              <Link href="/register">Profile</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem onSelect={() => signOut()}>
+              Sign out
+            </DropdownMenuItem>
+          </>
         )}
         <DropdownMenuSeparator />
         <DropdownMenuSub>

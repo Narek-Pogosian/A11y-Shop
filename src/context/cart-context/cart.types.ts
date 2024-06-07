@@ -1,4 +1,4 @@
-import { type Product } from "@/server/db/schema";
+import { type Product } from "@/server/schema/products";
 
 export interface CartItemType {
   product: Product;

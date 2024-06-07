@@ -1,6 +1,6 @@
 "use client";
 
-import { type Product } from "@/server/db/schema";
+import { type Product } from "@/server/schema/products";
 import { ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
