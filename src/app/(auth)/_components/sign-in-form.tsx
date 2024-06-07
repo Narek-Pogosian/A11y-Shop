@@ -65,7 +65,7 @@ function SignInForm() {
         />
 
         <Button type="submit" className="mt-2">
-          Register
+          Sign in
         </Button>
         <div className="text-center text-sm font-semibold">
           Don&apos;t have an account?{" "}

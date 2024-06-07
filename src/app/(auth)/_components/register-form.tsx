@@ -78,7 +78,7 @@ function RegisterForm() {
           control={form.control}
           name="email"
           render={({ field }) => (
-            <FormItem className="col-span-2 @md:col-span-1">
+            <FormItem className="col-span-2">
               <FormLabel>Email</FormLabel>
               <FormControl>
                 <Input placeholder="Email" {...field} autoComplete="email" />
