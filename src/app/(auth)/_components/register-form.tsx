@@ -16,9 +16,15 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
+import { register } from "@/server/actions/register";
+import { useAction } from "next-safe-action/hooks";
+import { signIn } from "next-auth/react";
+import { Loader } from "lucide-react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 function RegisterForm() {
+  const router = useRouter();
   const form = useForm<RegisterSchemaType>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
@@ -30,14 +36,24 @@ function RegisterForm() {
     },
   });
 
-  function onSubmit() {
-    console.log("submited");
-  }
+  const { execute, status } = useAction(register, {
+    async onSuccess() {
+      const res = await signIn("credentials", {
+        email: form.getValues().email,
+        password: form.getValues().password,
+        redirect: false,
+      });
+
+      if (res?.ok) {
+        router.push("/");
+      }
+    },
+  });
 
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        onSubmit={form.handleSubmit(execute)}
         className="grid w-full grid-cols-2 gap-4 @container"
       >
         <FormField
@@ -114,7 +130,11 @@ function RegisterForm() {
           )}
         />
         <Button type="submit" className="col-span-2 mt-2">
-          Register
+          {status === "executing" ? (
+            <Loader className="animate-spin" />
+          ) : (
+            "Register"
+          )}
         </Button>
         <div className="col-span-2 text-center text-sm font-semibold">
           Already have an account?{" "}

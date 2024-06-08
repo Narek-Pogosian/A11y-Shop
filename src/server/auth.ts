@@ -44,13 +44,23 @@ declare module "next-auth" {
  */
 export const authOptions: NextAuthOptions = {
   callbacks: {
-    session: ({ session, user }) => ({
-      ...session,
-      user: {
-        ...session.user,
-        id: user.id,
-      },
-    }),
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.role = user.role;
+      }
+      return token;
+    },
+    session: ({ session, token }) => {
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: token?.id,
+          role: token?.role,
+        },
+      };
+    },
   },
   adapter: DrizzleAdapter(db, {
     usersTable: users,
@@ -58,6 +68,9 @@ export const authOptions: NextAuthOptions = {
     sessionsTable: sessions,
     verificationTokensTable: verificationTokens,
   }) as Adapter,
+  session: {
+    strategy: "jwt",
+  },
   providers: [
     Credentials({
       credentials: {
@@ -66,8 +79,6 @@ export const authOptions: NextAuthOptions = {
       },
       authorize: async (credentials) => {
         const { email, password } = await signInSchema.parseAsync(credentials);
-
-        const pwHash = bcrypt.hashSync(password, 10);
 
         const userArr = await db
           .select({
@@ -82,13 +93,12 @@ export const authOptions: NextAuthOptions = {
           .where(eq(users.email, email));
 
         const user = userArr[0];
-
         if (!user) {
           throw new Error("User not found.");
         }
 
         const isPasswordMatch = await bcrypt.compare(
-          pwHash,
+          password,
           user.hashedPassword ?? "",
         );
         if (!isPasswordMatch) return null;

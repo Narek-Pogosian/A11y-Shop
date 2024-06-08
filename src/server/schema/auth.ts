@@ -17,7 +17,7 @@ export type UserRole = (typeof userRoleEnum.enumValues)[number];
 export const users = createTable("user", {
   id: varchar("id", { length: 255 }).notNull().primaryKey(),
   name: varchar("name", { length: 255 }),
-  email: varchar("email", { length: 255 }).notNull(),
+  email: varchar("email", { length: 255 }).notNull().unique(),
   hashedPassword: varchar("hashedPassword", { length: 255 }),
   role: userRoleEnum("role")
     .$default(() => "user")

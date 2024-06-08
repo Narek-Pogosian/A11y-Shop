@@ -17,8 +17,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 function SignInForm() {
+  const router = useRouter();
   const form = useForm<SignInSchemaType>({
     resolver: zodResolver(signInSchema),
     defaultValues: {
@@ -27,8 +30,16 @@ function SignInForm() {
     },
   });
 
-  function onSubmit() {
-    console.log("submited");
+  async function onSubmit() {
+    const res = await signIn("credentials", {
+      email: form.getValues().email,
+      password: form.getValues().password,
+      redirect: false,
+    });
+
+    if (res?.ok) {
+      router.push("/");
+    }
   }
 
   return (
