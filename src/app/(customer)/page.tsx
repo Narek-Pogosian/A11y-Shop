@@ -11,7 +11,7 @@ function HomePage() {
           alt=""
           priority
           fill
-          className="relative w-full object-cover after:absolute after:h-full after:w-full after:bg-danger-400"
+          className="relative w-full object-cover"
         />
         <div className="absolute flex h-full w-full flex-col items-center justify-center bg-black/45 text-white">
           <h1 className="mb-8 text-2xl font-bold md:text-5xl">

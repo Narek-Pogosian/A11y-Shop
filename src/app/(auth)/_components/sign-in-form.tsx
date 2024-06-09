@@ -16,12 +16,16 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Loader } from "lucide-react";
+import Link from "next/link";
 
 function SignInForm() {
   const router = useRouter();
+  const [isSigningIn, setIsSigningIn] = useState(false);
+
   const form = useForm<SignInSchemaType>({
     resolver: zodResolver(signInSchema),
     defaultValues: {
@@ -31,11 +35,13 @@ function SignInForm() {
   });
 
   async function onSubmit() {
+    setIsSigningIn(true);
     const res = await signIn("credentials", {
       email: form.getValues().email,
       password: form.getValues().password,
       redirect: false,
     });
+    setIsSigningIn(false);
 
     if (res?.ok) {
       router.push("/");
@@ -76,7 +82,7 @@ function SignInForm() {
         />
 
         <Button type="submit" className="mt-2">
-          Sign in
+          {isSigningIn ? <Loader className="animate-spin" /> : "Sign in"}
         </Button>
         <div className="text-center text-sm font-semibold">
           Don&apos;t have an account?{" "}

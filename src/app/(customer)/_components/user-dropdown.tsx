@@ -42,7 +42,7 @@ function UserDropdown() {
         ) : (
           <>
             <DropdownMenuItem asChild>
-              <Link href="/register">Profile</Link>
+              <Link href="/">Profile</Link>
             </DropdownMenuItem>
             <DropdownMenuItem onSelect={() => signOut()}>
               Sign out

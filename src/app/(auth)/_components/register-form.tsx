@@ -21,10 +21,13 @@ import { useAction } from "next-safe-action/hooks";
 import { signIn } from "next-auth/react";
 import { Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import Link from "next/link";
 
 function RegisterForm() {
   const router = useRouter();
+  const [isSigningIn, setIsSigningIn] = useState(false);
+
   const form = useForm<RegisterSchemaType>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
@@ -38,11 +41,13 @@ function RegisterForm() {
 
   const { execute, status } = useAction(register, {
     async onSuccess() {
+      setIsSigningIn(true);
       const res = await signIn("credentials", {
         email: form.getValues().email,
         password: form.getValues().password,
         redirect: false,
       });
+      setIsSigningIn(false);
 
       if (res?.ok) {
         router.push("/");
@@ -130,7 +135,7 @@ function RegisterForm() {
           )}
         />
         <Button type="submit" className="col-span-2 mt-2">
-          {status === "executing" ? (
+          {status === "executing" || isSigningIn ? (
             <Loader className="animate-spin" />
           ) : (
             "Register"

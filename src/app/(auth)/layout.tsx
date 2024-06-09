@@ -13,7 +13,7 @@ function layout({ children }: { children: React.ReactNode }) {
           asChild
         >
           <Link href="/shop">
-            <MoveLeft className="mr-2 size-4" /> Home
+            <MoveLeft className="mr-2 size-4" /> Back
           </Link>
         </Button>
         <div className="w-full max-w-xl px-4">{children}</div>
