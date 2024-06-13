@@ -24,3 +24,5 @@ export const categories: Category = {
     image: "",
   },
 };
+
+Object.freeze(categories);

@@ -1,10 +1,8 @@
-"use client";
-
 import CartDrawer from "./cart/cart-drawer";
 import UserDropdown from "./user-dropdown";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { useSession } from "next-auth/react";
+import { getServerAuthSession } from "@/server/auth";
 
 export function Logo() {
   return (
@@ -15,8 +13,8 @@ export function Logo() {
   );
 }
 
-function Header() {
-  const session = useSession();
+async function Header() {
+  const session = await getServerAuthSession();
 
   return (
     <header className="sticky inset-0 z-10 bg-background/75 py-4 backdrop-blur-md">
@@ -30,7 +28,7 @@ function Header() {
                   <Link href="/shop">Shop</Link>
                 </Button>
               </li>
-              {session?.data?.user.role === "admin" && (
+              {session?.user.role === "admin" && (
                 <li>
                   <Button asChild variant="ghost" className="max-sm:px-2">
                     <Link href="/admin">Admin</Link>

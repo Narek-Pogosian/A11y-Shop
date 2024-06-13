@@ -1,7 +1,7 @@
 import { categoryEnum } from "@/server/schema";
 import { z } from "zod";
 
-export const producSeachFormSchema = z.object({
+export const productSeachFormSchema = z.object({
   category: z.enum([...categoryEnum.enumValues, ""]).optional(),
   minPrice: z
     .string()
@@ -17,7 +17,7 @@ export const producSeachFormSchema = z.object({
     .optional(),
 });
 
-export const productsSearchParamsSchema = producSeachFormSchema.extend({
+export const productsSearchParamsSchema = productSeachFormSchema.extend({
   category: z.enum(categoryEnum.enumValues).optional(),
   orderBy: z
     .union([z.literal("name"), z.literal("price"), z.literal("createdAt")])
@@ -29,5 +29,5 @@ export const productsSearchParamsSchema = producSeachFormSchema.extend({
     .optional(),
 });
 
-export type ProductSearchFormType = z.infer<typeof producSeachFormSchema>;
+export type ProductSearchFormType = z.infer<typeof productSeachFormSchema>;
 export type ProductsSearchParams = z.infer<typeof productsSearchParamsSchema>;

@@ -35,6 +35,8 @@ function SignInForm() {
   });
 
   async function onSubmit() {
+    if (isSigningIn) return;
+
     setIsSigningIn(true);
     const res = await signIn("credentials", {
       email: form.getValues().email,
@@ -45,6 +47,7 @@ function SignInForm() {
 
     if (res?.ok) {
       router.push("/");
+      router.refresh();
     }
   }
 
@@ -81,7 +84,7 @@ function SignInForm() {
           )}
         />
 
-        <Button type="submit" className="mt-2">
+        <Button type="submit" className="mt-2" aria-disabled={isSigningIn}>
           {isSigningIn ? <Loader className="animate-spin" /> : "Sign in"}
         </Button>
         <div className="text-center text-sm font-semibold">

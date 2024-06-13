@@ -41,7 +41,7 @@ function CartWrapper() {
         Skip to form
       </Button>
       <ScrollArea>
-        <ul className="max-h-[350px] min-w-80 space-y-6 pr-3">
+        <ul className="max-h-[350px] min-w-60 space-y-6 pr-3">
           {cartItems.map((item) => (
             <CartItem key={item.productId} cartItem={item} />
           ))}

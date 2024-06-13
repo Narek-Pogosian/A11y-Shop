@@ -51,14 +51,20 @@ function RegisterForm() {
 
       if (res?.ok) {
         router.push("/");
+        router.refresh();
       }
     },
   });
 
+  function onSubmit(values: RegisterSchemaType) {
+    if (isSigningIn) return;
+    execute(values);
+  }
+
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(execute)}
+        onSubmit={form.handleSubmit(onSubmit)}
         className="grid w-full grid-cols-2 gap-4 @container"
       >
         <FormField
@@ -134,7 +140,11 @@ function RegisterForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="col-span-2 mt-2">
+        <Button
+          type="submit"
+          className="col-span-2 mt-2"
+          aria-disabled={isSigningIn}
+        >
           {status === "executing" || isSigningIn ? (
             <Loader className="animate-spin" />
           ) : (

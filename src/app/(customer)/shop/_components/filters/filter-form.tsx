@@ -1,6 +1,6 @@
 import {
   type ProductSearchFormType,
-  producSeachFormSchema,
+  productSeachFormSchema,
 } from "@/lib/validations/products-searchparams";
 import {
   Form,
@@ -27,7 +27,7 @@ function FilterForm({ closeDialog }: FilterFormProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const form = useForm<ProductSearchFormType>({
-    resolver: zodResolver(producSeachFormSchema),
+    resolver: zodResolver(productSeachFormSchema),
     defaultValues: {
       // @ts-expect-error We validate the searchparams in page.tsx.
       category: searchParams.get("category") ?? "",

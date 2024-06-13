@@ -217,7 +217,7 @@ const CheckoutForm = () => {
             <Button
               type="submit"
               variant="secondary"
-              className="order-last px-10 font-semibold"
+              className="order-last px-10 font-semibold shadow-bezel"
             >
               Order
             </Button>
