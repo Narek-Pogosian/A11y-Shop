@@ -1,16 +1,20 @@
-## About the project
+# E-commerce MVP with Web Accessibility Focus
 
-![shop](https://github.com/user-attachments/assets/cc171a00-d22b-4d28-8ecd-46529d71d383)
+## 🚀 About the Project
 
-This project served as the final examination project for my Frontend Development program at KYH. The primary goal of this project was to learn more about Web Accessibility and to get familiar with tools such as screenreaders. I chose to do it by researching from various sources, mainly W3C and then built an e-commerce platform with common features such as product browsing with filtering and sort and a cart system with focus on inclusive design.
+This project was developed as the final examination for my Frontend Development program at KYH. The primary objective was to deepen my understanding of Web Accessibility and to gain hands-on experience with tools such as screen readers.
 
-In summary, I am happy I chose this project as it significantly expanded my knowledge of semantic HTML and the WAI-ARIA guidelines and got a better understanding of how screenreaders are used.
+To achieve this, I conducted extensive research, primarily referencing W3C guidelines, and built an e-commerce platform incorporating essential features like product browsing with filtering and sorting, as well as a cart system. A key focus was placed on inclusive design principles to ensure accessibility for all users.
 
-## Tech Stack
+Overall, I am very satisfied with the outcome of this project. It significantly enhanced my knowledge of semantic HTML, the WAI-ARIA guidelines, and gave me valuable insights into how screen readers interact with web content.
 
-- Next.js
-- TypeScript
-- Drizzle ORM
-- Tailwind CSS
-- Shadcn ui
-- Zod
+![E-commerce Platform](https://github.com/user-attachments/assets/cc171a00-d22b-4d28-8ecd-46529d71d383)
+
+## 🛠️ Technologies Used
+
+- **Next.js**
+- **TypeScript**
+- **Drizzle ORM**
+- **Tailwind CSS**
+- **Shadcn UI**
+- **Zod**
