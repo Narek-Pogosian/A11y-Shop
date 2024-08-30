@@ -1,5 +1,3 @@
-# E-commerce MVP with Web Accessibility Focus
-
 ## 🚀 About the Project
 
 This project was developed as the final examination for my Frontend Development program at KYH. The primary objective was to deepen my understanding of Web Accessibility and to gain hands-on experience with tools such as screen readers.
